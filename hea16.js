@@ -423,9 +423,9 @@ function calculateKopfplattePrice(kopfplattePricesData) {
     console.error("Invalid bohrungenDurchmesser value:", bohrungenDurchmesser);
   }
 
-  const bohrungenPrice = parseFloat(kopfplattePricesData[bohrungenCategory]["bohrungenCategory"]) * bohrungen;
+  const bohrungenPrice = parseFloat(kopfplattePricesData["bohrungenCategory"][bohrungenCategory]) * bohrungen;
   console.log("Bohrungen price:", bohrungenPrice);
-  console.log("KopfplattePricesData bohrungenCategory price:", parseFloat(kopfplattePricesData[bohrungenCategory]["bohrungenCategory"]));
+  console.log("KopfplattePricesData bohrungenCategory price:", parseFloat(kopfplattePricesData["bohrungenCategory"][bohrungenCategory]));
 
   // Calculate other option prices
   const anschweisenPrice = parseFloat(kopfplattePricesData["anschweiben"][anschweisen]);
