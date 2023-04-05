@@ -521,10 +521,21 @@ function setDefaultValues() {
   const beamLengthInput = document.getElementById("beam-length");
   if (beamLengthInput) {
     beamLengthInput.value = 1000;
+    beamLengthInput.addEventListener("input", () => {
+      if (beamLengthInput.value === "" || parseFloat(beamLengthInput.value) < 0) {
+        beamLengthInput.value = 0;
+      }
+    });
   }
+  
   const beamMengeInput = document.getElementById("beam-menge");
   if (beamMengeInput) {
     beamMengeInput.value = 1;
+    beamMengeInput.addEventListener("input", () => {
+      if (beamMengeInput.value === "" || parseFloat(beamMengeInput.value) < 0) {
+        beamMengeInput.value = 0;
+      }
+    });
   }
 }
 
