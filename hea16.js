@@ -497,7 +497,7 @@ function calculateFusplattePrice(fusplattePricesData) {
   console.log("anschweisen Price:", anschweisenPrice);
   console.log("kehlnahtstarke Price:", kehlnahtstarkePrice);
 
-  const fusplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice;
+  const fusplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice;
   console.log("fusplatte Price:", fusplattePrice);
   return fusplattePrice;
   
