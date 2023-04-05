@@ -361,7 +361,6 @@ console.log("Bohrungen price:", bohrungenPrice);
 async function fetchKopfplattePrices() {
   const response = await fetch("https://api.airtable.com/v0/appIIKEo5ExPVPr9I/Kopfplatte?api_key=keyLAGDgC4VT8YzLb");
   const data = await response.json();
-  console.log("Fetched data:", data);
   const records = data.records;
   const prices = {};
 
@@ -372,7 +371,6 @@ async function fetchKopfplattePrices() {
     const value = record.fields["Value"] || 'default';
     prices[record.fields["Option"]][record.fields["Value"]] = record.fields["Price"];
   });
-  console.log("Kopfplatte prices:", prices);
   return prices;
 }
 
@@ -393,22 +391,12 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   const dorne = parseInt(document.getElementById("kopfplatte-dorne").value, 10);
 
   const steelDensity = 7850; // in kg/m3
-  
-  console.log("Lange:", lange);
-  console.log("Breite:", breite);
-  console.log("Dicke:", dicke);
-  console.log("Kopfplatte prices data:", kopfplattePricesData);
-  console.log("BohrungenDurchmesser:", bohrungenDurchmesser);
-  console.log("Bohrungen:", bohrungen);
 
   // Calculate size price
   const volume = lange * breite * dicke / 1000000000; // Convert to m3
   const weight = volume * steelDensity; // Weight in kg
-  console.log("Weight:", weight);
-  console.log("KopfplattePricesData kg price:", parseFloat(kopfplattePricesData["kg"][""]));
-
+  
   const sizePrice = weight * parseFloat(kopfplattePricesData["kg"]["default"]);
-  console.log("Size price:", sizePrice);
 
   // Calculate bohrungen price
   let bohrungenCategory = "";
@@ -420,23 +408,16 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   } else if (bohrungenDurchmesser >= 19 && bohrungenDurchmesser <= 22) {
     bohrungenCategory = "19-22";
   } else {
-    console.error("Invalid bohrungenDurchmesser value:", bohrungenDurchmesser);
   }
 
   const bohrungenPrice = parseFloat(kopfplattePricesData[bohrungenCategory][bohrungenCategory]) * bohrungen;
-  console.log("Bohrungen price:", bohrungenPrice);
-  console.log("KopfplattePricesData bohrungenCategory price:", parseFloat(kopfplattePricesData[bohrungenCategory][bohrungenCategory]));
 
   // Calculate other option prices
   const anschweisenPrice = parseFloat(kopfplattePricesData["anschweiben"][anschweisen]);
   const kehlnahtstarkePrice = parseFloat(kopfplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
   const dornePrice = parseFloat(kopfplattePricesData["dorne"][dorne.toString()]);
-  console.log("anschweisen Price:", anschweisenPrice);
-  console.log("kehlnahtstarke Price:", kehlnahtstarkePrice);
-  console.log("dorne Price:", dornePrice);
 
   const kopfplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice;
-  console.log("kopfplatte Price:", kopfplattePrice);
   return kopfplattePrice;
   
 }
@@ -584,7 +565,7 @@ function animateValue(element, start, end, duration) {
 }
 
 
-async function updatePrice(pricesData, kopfplattePricesData) {
+async function updatePrice(pricesData, kopfplattePricesData, fusplattePricesData) {
   const selectedValues = getSelectedValues();
   const totalPriceHEA = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge);
   const totalPriceKopfplatte = calculateKopfplattePrice(kopfplattePricesData);
@@ -627,14 +608,15 @@ async function main() {
   document.getElementById("kopfplatte-bohrungen-durchmesser").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
   document.getElementById("kopfplatte-kehlnahtstarke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
   document.getElementById("kopfplatte-dorne").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
-  document.getElementById("fusplatte-checkbox").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
-  document.getElementById("fusplatte-lange").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
-  document.getElementById("fusplatte-breite").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
-  document.getElementById("fusplatte-dicke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
-  document.getElementById("fusplatte-anschweisen").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
-  document.getElementById("fusplatte-bohrungen").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
-  document.getElementById("fusplatte-bohrungen-durchmesser").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
-  document.getElementById("fusplatte-kehlnahtstarke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("fusplatte-checkbox").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+  document.getElementById("fusplatte-lange").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+  document.getElementById("fusplatte-breite").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+  document.getElementById("fusplatte-dicke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+  document.getElementById("fusplatte-anschweisen").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+  document.getElementById("fusplatte-bohrungen").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+  document.getElementById("fusplatte-bohrungen-durchmesser").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+  document.getElementById("fusplatte-kehlnahtstarke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+
   
 
   // Add event listeners for other form elements as needed
