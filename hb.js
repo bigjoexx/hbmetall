@@ -567,6 +567,11 @@ function animateValue(element, start, end, duration) {
 
 
 async function updatePrice(pricesData) {
+  const beamLengthInput = document.getElementById("beam-length");
+  const beamMengeInput = document.getElementById("beam-menge");
+  const beamLength = beamLengthInput.value === "" || isNaN(beamLengthInput.value) ? 1000 : parseFloat(beamLengthInput.value);
+  const beamMenge = beamMengeInput.value === "" || isNaN(beamMengeInput.value) ? 1 : parseFloat(beamMengeInput.value);
+  
   const kopfplattePricesDataPromise = fetchKopfplattePrices();
   const fusplattePricesDataPromise = fetchFusplattePrices();
 
@@ -625,6 +630,8 @@ async function main() {
   document.getElementById("fusplatte-bohrungen").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
   document.getElementById("fusplatte-bohrungen-durchmesser").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
   document.getElementById("fusplatte-kehlnahtstarke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+  document.getElementById("beam-length").addEventListener("input", updatePrice);
+  document.getElementById("beam-menge").addEventListener("input", updatePrice);
 
   
 
