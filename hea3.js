@@ -523,7 +523,7 @@ function animateValue(element, start, end, duration) {
 
 async function updatePrice(pricesData, kopfplattePricesData) {
   const selectedValues = getSelectedValues();
-  const totalPrice = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge);
+  const totalPrice = calculateTotalPrice(selectedValues, pricesData, kopfplattePricesData, selectedValues.beamMenge);
 
   const priceWithoutVATElem = document.getElementById("price-novat");
   const priceWithVATElem = document.getElementById("price-vat");
