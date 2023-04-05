@@ -566,6 +566,8 @@ function animateValue(element, start, end, duration) {
 
 
 async function updatePrice(pricesData, kopfplattePricesData, fusplattePricesData) {
+  const kopfplattePricesData = await kopfplattePricesDataPromise;
+  const fusplattePricesData = await fusplattePricesDataPromise;
   const selectedValues = getSelectedValues();
   const totalPriceHEA = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge);
   const totalPriceKopfplatte = calculateKopfplattePrice(kopfplattePricesData);
@@ -599,7 +601,7 @@ async function main() {
   document.getElementById("hea-bohrungen").addEventListener("change", () => updatePrice(pricesData));
   document.getElementById("hea-bohrungen-durchmesser").addEventListener("change", () => updatePrice(pricesData));
   document.getElementById("beam-menge").addEventListener("input", () => updatePrice(pricesData));
-  document.getElementById("kopfplatte-checkbox").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("kopfplatte-checkbox").addEventListener("change", () => updatePrice(pricesData, fetchKopfplattePrices(), fetchFusplattePrices()));
   document.getElementById("kopfplatte-lange").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
   document.getElementById("kopfplatte-breite").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
   document.getElementById("kopfplatte-dicke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
@@ -608,7 +610,7 @@ async function main() {
   document.getElementById("kopfplatte-bohrungen-durchmesser").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
   document.getElementById("kopfplatte-kehlnahtstarke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
   document.getElementById("kopfplatte-dorne").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
-  document.getElementById("fusplatte-checkbox").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
+  document.getElementById("fusplatte-checkbox").addEventListener("change", () => updatePrice(pricesData, fetchKopfplattePrices(), fetchFusplattePrices()));
   document.getElementById("fusplatte-lange").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
   document.getElementById("fusplatte-breite").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
   document.getElementById("fusplatte-dicke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData, fusplattePricesData));
