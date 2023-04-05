@@ -244,7 +244,7 @@ function uploadToCloudinary(file) {
 
     } else {
       console.log('Form is not valid.');
-      $('<input type="submit">').hide().appendTo($form).click().remove();
+      $('<input type="submit"/>').hide().appendTo($form).click().remove();
     }
   });
 });
