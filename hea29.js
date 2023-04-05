@@ -566,11 +566,15 @@ function animateValue(element, start, end, duration) {
 }
 
 
-async function updatePrice(pricesData, kopfplattePricesData, fusplattePricesData) {
-  const kopfplattePricesData = await kopfplattePricesDataPromise;
-  const fusplattePricesData = await fusplattePricesDataPromise;
+async function updatePrice(pricesData) {
+  const kopfplattePricesDataPromise = fetchKopfplattePrices();
+  const fusplattePricesDataPromise = fetchFusplattePrices();
   const selectedValues = getSelectedValues();
   const totalPriceHEA = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge);
+  
+  const kopfplattePricesData = await kopfplattePricesDataPromise;
+  const fusplattePricesData = await fusplattePricesDataPromise;
+
   const totalPriceKopfplatte = calculateKopfplattePrice(kopfplattePricesData);
   const totalPriceFusplatte = calculateFusplattePrice(fusplattePricesData);
 
