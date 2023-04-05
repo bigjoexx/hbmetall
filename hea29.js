@@ -469,7 +469,7 @@ function calculateFusplattePrice(fusplattePricesData) {
   const volume = lange * breite * dicke / 1000000000; // Convert to m3
   const weight = volume * steelDensity; // Weight in kg
   console.log("Weight:", weight);
-  console.log("fusplattePricesData kg price:", parseFloat(fusplattePricesData["kg"][""]));
+  console.log("fusplattePricesData kg price:", parseFloat(fusplattePricesData["kg"]["default"]));
 
   const sizePrice = weight * parseFloat(fusplattePricesData["kg"]["default"]);
   console.log("Size price:", sizePrice);
@@ -500,7 +500,8 @@ function calculateFusplattePrice(fusplattePricesData) {
   const fusplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice;
   console.log("fusplatte Price:", fusplattePrice);
   return fusplattePrice;
-  
+  console.log("fusplattePricesData:", fusplattePricesData);
+
 }
 
 
