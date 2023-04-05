@@ -506,6 +506,9 @@ function calculateFusplattePrice(fusplattePricesData) {
 
 
 function calculateTotalPrice(selectedValues, pricesData, beamMenge, kopfplattePrice, fusplattePrice) {
+  if (selectedValues.beamLength <= 0 || selectedValues.beamMenge <= 0) {
+    return 0;
+  }
   const lengthPrice = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
     console.log("Length price:", lengthPrice);
   const optionsPrice = calculateOptionsPrice(selectedValues, pricesData);
@@ -517,6 +520,17 @@ function calculateTotalPrice(selectedValues, pricesData, beamMenge, kopfplattePr
   return totalPrice;
 }
 
+function updateWarningMessage(beamLength, beamMenge) {
+  const warningMessage = document.getElementById("warning-message");
+
+  if (beamLength <= 0 || beamMenge <= 0) {
+    warningMessage.style.display = "block";
+  } else {
+    warningMessage.style.display = "none";
+  }
+}
+
+
 function setDefaultValues() {
   const beamLengthInput = document.getElementById("beam-length");
   if (beamLengthInput) {
@@ -525,6 +539,7 @@ function setDefaultValues() {
       if (beamLengthInput.value === "" || parseFloat(beamLengthInput.value) < 0) {
         beamLengthInput.value = 0;
       }
+      updateWarningMessage(parseFloat(beamLengthInput.value), parseFloat(beamMengeInput.value));
     });
   }
   
@@ -535,6 +550,7 @@ function setDefaultValues() {
       if (beamMengeInput.value === "" || parseFloat(beamMengeInput.value) < 0) {
         beamMengeInput.value = 0;
       }
+      updateWarningMessage(parseFloat(beamLengthInput.value), parseFloat(beamMengeInput.value));
     });
   }
 }
