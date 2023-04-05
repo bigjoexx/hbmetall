@@ -505,14 +505,14 @@ function calculateFusplattePrice(fusplattePricesData) {
 }
 
 
-function calculateTotalPrice(selectedValues, pricesData, beamMenge) {
+function calculateTotalPrice(selectedValues, pricesData, beamMenge, kopfplattePrice, fusplattePrice) {
   const lengthPrice = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
     console.log("Length price:", lengthPrice);
   const optionsPrice = calculateOptionsPrice(selectedValues, pricesData);
     console.log("Options price:", optionsPrice);
   const baseCuttingPrice = parseFloat(pricesData[selectedValues.heaSize]["schneiden"]);
     console.log("Base cutting price:", baseCuttingPrice);
-  const totalPrice = (lengthPrice + optionsPrice + baseCuttingPrice) * beamMenge;
+  const totalPrice = (lengthPrice + optionsPrice + baseCuttingPrice + kopfplattePrice + fusplattePrice) * beamMenge;
     console.log("Total price:", totalPrice);
   return totalPrice;
 }
@@ -570,7 +570,7 @@ async function updatePrice(pricesData) {
   const kopfplattePricesDataPromise = fetchKopfplattePrices();
   const fusplattePricesDataPromise = fetchFusplattePrices();
   const selectedValues = getSelectedValues();
-  const totalPriceHEA = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge);
+  const totalPriceHEA = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge, totalPriceKopfplatte, totalPriceFusplatte);
   
   const kopfplattePricesData = await kopfplattePricesDataPromise;
   const fusplattePricesData = await fusplattePricesDataPromise;
@@ -578,7 +578,7 @@ async function updatePrice(pricesData) {
   const totalPriceKopfplatte = calculateKopfplattePrice(kopfplattePricesData);
   const totalPriceFusplatte = calculateFusplattePrice(fusplattePricesData);
 
-  const totalPrice = totalPriceHEA + totalPriceKopfplatte + totalPriceFusplatte;
+  const totalPrice = totalPriceHEA;
 
   const priceWithoutVATElem = document.getElementById("price-novat");
   const priceWithVATElem = document.getElementById("price-vat");
