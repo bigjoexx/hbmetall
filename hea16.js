@@ -492,8 +492,8 @@ function calculateFusplattePrice(fusplattePricesData) {
   console.log("fusplattePricesData bohrungenCategory price:", parseFloat(fusplattePricesData[bohrungenCategory][bohrungenCategory]));
 
   // Calculate other option prices
-  const anschweisenPrice = parseFloat(kopfplattePricesData["anschweiben"][anschweisen]);
-  const kehlnahtstarkePrice = parseFloat(kopfplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
+  const anschweisenPrice = parseFloat(fusplattePricesData["anschweiben"][anschweisen]);
+  const kehlnahtstarkePrice = parseFloat(fusplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
   console.log("anschweisen Price:", anschweisenPrice);
   console.log("kehlnahtstarke Price:", kehlnahtstarkePrice);
 
