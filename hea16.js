@@ -369,6 +369,7 @@ async function fetchKopfplattePrices() {
     if (!prices.hasOwnProperty(record.fields["Option"])) {
       prices[record.fields["Option"]] = {};
     }
+    const value = record.fields["Value"] || 'default';
     prices[record.fields["Option"]][record.fields["Value"]] = record.fields["Price"];
   });
   console.log("Kopfplatte prices:", prices);
@@ -406,7 +407,7 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   console.log("Weight:", weight);
   console.log("KopfplattePricesData kg price:", parseFloat(kopfplattePricesData["kg"][""]));
 
-  const sizePrice = weight * parseFloat(kopfplattePricesData["kg"][""]);
+  const sizePrice = weight * parseFloat(kopfplattePricesData["kg"]["default"]);
   console.log("Size price:", sizePrice);
 
   // Calculate bohrungen price
