@@ -459,18 +459,26 @@ function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
     bohrungenDurchmesser,
   } = selectedValues;
 
-// Calculate the price of the platte using steel density and volume
+  // Find the price per kg in the data
+  const pricePerKgRecord = kopfplattePricesData.find(record => record.Option === "kg");
+  const pricePerKg = parseFloat(pricePerKgRecord.Price);
+
+  // Calculate the price of the platte using steel density and volume
   const STEEL_DENSITY = 7850; // kg/m³
   const volume = (fusplatteLange / 1000) * (fusplatteBreite / 1000) * (fusplatteDicke / 1000); // m³
   const weight = volume * STEEL_DENSITY; // kg
-  console.log("kopfplattePricesData:", kopfplattePricesData);
-  const pricePerKg = parseFloat(kopfplattePricesData["kg"]["Price"]);
   const plattePrice = weight * pricePerKg;
 
+  // Helper function to find the price for a specific option and value
+  const findPrice = (option, value) => {
+    const record = kopfplattePricesData.find(row => row.Option === option && row.Value === value);
+    return record ? parseFloat(record.Price) : 0;
+  };
+
   // Calculate the price for other data
-  const anschweisenPrice = parseFloat(kopfplattePricesData[anschweisen]["Price"]);
-  const kehlnahtstarkePrice = parseFloat(kopfplattePricesData[kehlnahtstarke]["Price"]);
-  const dornePrice = parseFloat(kopfplattePricesData[dorne]["Price"]);
+  const anschweisenPrice = findPrice("anschweisen", anschweisen);
+  const kehlnahtstarkePrice = findPrice("kehlnahtstarke", kehlnahtstarke);
+  const dornePrice = findPrice("dorne", dorne);
 
   // Calculate the bohrungen price
   let diameterCategory = "";
@@ -486,10 +494,10 @@ function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
     console.error("Invalid diameter value:", diameter);
   }
 
-  const bohrungenPricePerHole = parseFloat(kopfplattePricesData[diameterCategory]["Price"]);
+  const bohrungenPricePerHole = findPrice(diameterCategory, diameterCategory);
   const bohrungenPrice = bohrungenPricePerHole * bohrungen;
 
-    return kopfplattePrice;
+  return kopfplattePrice = plattePrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice + bohrungenPrice;
 }
 
 
