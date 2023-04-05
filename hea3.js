@@ -463,6 +463,7 @@ function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
   const STEEL_DENSITY = 7850; // kg/m³
   const volume = (fusplatteLange / 1000) * (fusplatteBreite / 1000) * (fusplatteDicke / 1000); // m³
   const weight = volume * STEEL_DENSITY; // kg
+  console.log("kopfplattePricesData:", kopfplattePricesData);
   const pricePerKg = parseFloat(kopfplattePricesData["kg"]["Price"]);
   const plattePrice = weight * pricePerKg;
 
