@@ -441,7 +441,86 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   
 }
   
+  //Fusplatte
+
+  async function fetchFusplattePrices() {
+  const response = await fetch("https://api.airtable.com/v0/appIIKEo5ExPVPr9I/Fusplatte?api_key=keyLAGDgC4VT8YzLb");
+  const data = await response.json();
+  const records = data.records;
+  const prices = {};
+
+  records.forEach((record) => {
+    if (!prices.hasOwnProperty(record.fields["Option"])) {
+      prices[record.fields["Option"]] = {};
+    }
+    const value = record.fields["Value"] || 'default';
+    prices[record.fields["Option"]][record.fields["Value"]] = record.fields["Price"];
+  });
+
+  return prices;
+}
+
+function calculateFusplattePrice(fusplattePricesData) {
+  // Check if the fusplatte checkbox is checked
+  const fusplatteCheckbox = document.getElementById("fusplatte-checkbox");
+  if (!fusplatteCheckbox.checked) {
+    return 0;
+  }
   
+  const lange = parseInt(document.getElementById("fusplatte-lange").value, 10) || 0;
+  const breite = parseInt(document.getElementById("fusplatte-breite").value, 10) || 0;
+  const dicke = parseInt(document.getElementById("fusplatte-dicke").value, 10) || 0;
+  const anschweisen = document.getElementById("fusplatte-anschweisen").value;
+  const bohrungen = parseInt(document.getElementById("fusplatte-bohrungen").value, 10);
+  const bohrungenDurchmesser = parseInt(document.getElementById("fusplatte-bohrungen-durchmesser").value, 10);
+  const kehlnahtstarke = document.getElementById("fusplatte-kehlnahtstarke").value;
+
+  const steelDensity = 7850; // in kg/m3
+  
+  console.log("Lange:", lange);
+  console.log("Breite:", breite);
+  console.log("Dicke:", dicke);
+  console.log("fusplatte prices data:", fusplattePricesData);
+  console.log("BohrungenDurchmesser:", bohrungenDurchmesser);
+  console.log("Bohrungen:", bohrungen);
+
+  // Calculate size price
+  const volume = lange * breite * dicke / 1000000000; // Convert to m3
+  const weight = volume * steelDensity; // Weight in kg
+  console.log("Weight:", weight);
+  console.log("fusplattePricesData kg price:", parseFloat(fusplattePricesData["kg"][""]));
+
+  const sizePrice = weight * parseFloat(fusplattePricesData["kg"]["default"]);
+  console.log("Size price:", sizePrice);
+
+  // Calculate bohrungen price
+  let bohrungenCategory = "";
+
+  if (bohrungenDurchmesser >= 10 && bohrungenDurchmesser <= 13) {
+    bohrungenCategory = "10-13";
+  } else if (bohrungenDurchmesser >= 14 && bohrungenDurchmesser <= 18) {
+  bohrungenCategory = "14-18";
+  } else if (bohrungenDurchmesser >= 19 && bohrungenDurchmesser <= 22) {
+    bohrungenCategory = "19-22";
+  } else {
+    console.error("Invalid bohrungenDurchmesser value:", bohrungenDurchmesser);
+  }
+
+  const bohrungenPrice = parseFloat(fusplattePricesData[bohrungenCategory][bohrungenCategory]) * bohrungen;
+  console.log("Bohrungen price:", bohrungenPrice);
+  console.log("fusplattePricesData bohrungenCategory price:", parseFloat(fusplattePricesData[bohrungenCategory][bohrungenCategory]));
+
+  // Calculate other option prices
+  const anschweisenPrice = parseFloat(kopfplattePricesData["anschweiben"][anschweisen]);
+  const kehlnahtstarkePrice = parseFloat(kopfplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
+  console.log("anschweisen Price:", anschweisenPrice);
+  console.log("kehlnahtstarke Price:", kehlnahtstarkePrice);
+
+  const fusplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice;
+  console.log("fusplatte Price:", fusplattePrice);
+  return fusplattePrice;
+  
+}
 
 
 function calculateTotalPrice(selectedValues, pricesData, beamMenge) {
@@ -509,8 +588,9 @@ async function updatePrice(pricesData, kopfplattePricesData) {
   const selectedValues = getSelectedValues();
   const totalPriceHEA = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge);
   const totalPriceKopfplatte = calculateKopfplattePrice(kopfplattePricesData);
+  const totalPriceFusplatte = calculateFusplattePrice(fusplattePricesData);
 
-  const totalPrice = totalPriceHEA + totalPriceKopfplatte;
+  const totalPrice = totalPriceHEA + totalPriceKopfplatte + totalPriceFusplatte;
 
   const priceWithoutVATElem = document.getElementById("price-novat");
   const priceWithVATElem = document.getElementById("price-vat");
@@ -525,6 +605,8 @@ async function updatePrice(pricesData, kopfplattePricesData) {
 async function main() {
   const kopfplattePricesData = await fetchKopfplattePrices();
   const kopfplattePrices = calculateKopfplattePrice(kopfplattePricesData);
+  const fusplattePricesData = await fetchFusplattePrices();
+  const fusplattePrices = calculateFusplattePrice(fusplattePricesData);
   const pricesData = await fetchPrices();
 
   document.getElementById("hea-size").addEventListener("change", () => updatePrice(pricesData));
@@ -545,11 +627,20 @@ async function main() {
   document.getElementById("kopfplatte-bohrungen-durchmesser").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
   document.getElementById("kopfplatte-kehlnahtstarke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
   document.getElementById("kopfplatte-dorne").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("fusplatte-checkbox").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("fusplatte-lange").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("fusplatte-breite").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("fusplatte-dicke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("fusplatte-anschweisen").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("fusplatte-bohrungen").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("fusplatte-bohrungen-durchmesser").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  document.getElementById("fusplatte-kehlnahtstarke").addEventListener("change", () => updatePrice(pricesData, kopfplattePricesData));
+  
 
   // Add event listeners for other form elements as needed
 
   setDefaultValues();
-  updatePrice(pricesData, kopfplattePricesData); // Call once to initialize the price
+  updatePrice(pricesData, kopfplattePricesData, fusplattePricesData); // Call once to initialize the price
 }
 
 main();
