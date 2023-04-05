@@ -461,8 +461,17 @@ function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
     bohrungenDurchmesser,
   } = selectedValues;
 
+  if (!kopfplattePricesData) {
+    console.error("Kopfplatte prices data is not provided");
+    return 0;
+  }
+
   // Find the price per kg in the data
-  const pricePerKgRecord = kopfplattePricesData.find(record => record.Option === "kg");
+  const pricePerKgRecord = kopfplattePricesData["kg"];
+  if (!pricePerKgRecord) {
+    console.error("Price per kg not found in kopfplatte prices data");
+    return 0;
+  }
   const pricePerKg = parseFloat(pricePerKgRecord.Price);
 
   // Calculate the price of the platte using steel density and volume
@@ -472,16 +481,17 @@ function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
   const plattePrice = weight * pricePerKg;
 
   // Helper function to find the price for a specific option and value
-  const findPrice = (option, value) => {
-    const record = kopfplattePricesData.find(row => row.Option === option && row.Value === value);
+  const findPrice = (option) => {
+    const record = kopfplattePricesData[option];
     return record ? parseFloat(record.Price) : 0;
   };
 
   // Calculate the price for other data
-  const anschweisenPrice = findPrice("anschweisen", anschweisen);
-  const kehlnahtstarkePrice = findPrice("kehlnahtstarke", kehlnahtstarke);
-  const dornePrice = findPrice("dorne", dorne);
+  const anschweisenPrice = findPrice(anschweisen);
+  const kehlnahtstarkePrice = findPrice(kehlnahtstarke);
+  const dornePrice = findPrice(dorne);
 
+  // Calculate the bohrungen price
   let diameterCategory = "";
   const diameter = parseInt(bohrungenDurchmesser);
 
@@ -495,15 +505,10 @@ function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
     console.error("Invalid diameter value:", diameter);
   }
 
-  const bohrungenPricePerHole = findPrice(diameterCategory, diameterCategory);
+  const bohrungenPricePerHole = findPrice(diameterCategory);
   const bohrungenPrice = bohrungenPricePerHole * bohrungen;
 
-  if (isNaN(bohrungenPrice)) {
-    console.error("Bohrungen price calculation failed. Check if the data for the selected diameter category exists.");
-    return 0;
-  }
-
-  return kopfplattePrice = plattePrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice + bohrungenPrice;
+  return plattePrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice + bohrungenPrice;
 }
 
 
