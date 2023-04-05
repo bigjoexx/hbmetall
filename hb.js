@@ -319,6 +319,12 @@ function calculateOptionsPrice(selectedValues, pricesData) {
     heaBohrungenDurchmesser,
     beamMenge,
   } = selectedValues;
+  
+  if (!pricesData || !pricesData[selectedValues.heaSize]) {
+    console.error('Error: pricesData is missing or incomplete');
+    return 0;
+  }
+  const sizeData = pricesData[selectedValues.heaSize];
 
   const stegblechePrice = parseFloat(pricesData[heaSize]["stegbleche"]) * heaStegbleche;
   const ausklinkungenPrice = parseFloat(pricesData[heaSize]["ausklinkungen"]) * heaAusklinkungen;
