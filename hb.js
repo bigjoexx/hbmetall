@@ -569,15 +569,16 @@ function animateValue(element, start, end, duration) {
 async function updatePrice(pricesData) {
   const kopfplattePricesDataPromise = fetchKopfplattePrices();
   const fusplattePricesDataPromise = fetchFusplattePrices();
-  const selectedValues = getSelectedValues();
-  const totalPriceHEA = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge, totalPriceKopfplatte, totalPriceFusplatte);
-  
+
   const kopfplattePricesData = await kopfplattePricesDataPromise;
   const fusplattePricesData = await fusplattePricesDataPromise;
 
   const totalPriceKopfplatte = calculateKopfplattePrice(kopfplattePricesData);
   const totalPriceFusplatte = calculateFusplattePrice(fusplattePricesData);
 
+  const selectedValues = getSelectedValues();
+  const totalPriceHEA = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge, totalPriceKopfplatte, totalPriceFusplatte);
+  
   const totalPrice = totalPriceHEA;
 
   const priceWithoutVATElem = document.getElementById("price-novat");
@@ -588,6 +589,7 @@ async function updatePrice(pricesData) {
 
   updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice);
 }
+
 
 
 async function main() {
