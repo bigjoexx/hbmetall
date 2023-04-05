@@ -444,6 +444,8 @@ async function fetchKopfplattePrices() {
     prices[record.fields["Option"]] = record.fields;
   });
 
+  console.log("Fetched prices data:", prices);
+  
   return prices;
 }
 
@@ -522,6 +524,7 @@ function animateValue(element, start, end, duration) {
 
 
 async function updatePrice(pricesData, kopfplattePricesData) {
+  console.log("Prices data in updatePrice:", pricesData);
   const selectedValues = getSelectedValues();
   const totalPrice = calculateTotalPrice(selectedValues, pricesData, kopfplattePricesData, selectedValues.beamMenge);
 
