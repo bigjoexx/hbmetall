@@ -361,6 +361,7 @@ console.log("Bohrungen price:", bohrungenPrice);
 async function fetchKopfplattePrices() {
   const response = await fetch("https://api.airtable.com/v0/appIIKEo5ExPVPr9I/Kopfplatte?api_key=keyLAGDgC4VT8YzLb");
   const data = await response.json();
+  console.log("Fetched data:", data);
   const records = data.records;
   const prices = {};
 
@@ -370,7 +371,7 @@ async function fetchKopfplattePrices() {
     }
     prices[record.fields["Option"]][record.fields["Value"]] = record.fields["Price"];
   });
-
+  console.log("Kopfplatte prices:", prices);
   return prices;
 }
 
@@ -381,9 +382,9 @@ function calculateKopfplattePrice(kopfplattePricesData) {
     return 0;
   }
 
-  const lange = parseInt(document.getElementById("kopfplatte-lange").value, 10);
-  const breite = parseInt(document.getElementById("kopfplatte-breite").value, 10);
-  const dicke = parseInt(document.getElementById("kopfplatte-dicke").value, 10);
+  const lange = parseInt(document.getElementById("kopfplatte-lange").value, 10) || 0;
+  const breite = parseInt(document.getElementById("kopfplatte-breite").value, 10) || 0;
+  const dicke = parseInt(document.getElementById("kopfplatte-dicke").value, 10) || 0;
   const anschweisen = document.getElementById("kopfplatte-anschweisen").value;
   const bohrungen = parseInt(document.getElementById("kopfplatte-bohrungen").value, 10);
   const bohrungenDurchmesser = parseInt(document.getElementById("kopfplatte-bohrungen-durchmesser").value, 10);
@@ -396,23 +397,37 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   const volume = lange * breite * dicke * 0.000001; // Convert to m3
   const weight = volume * steelDensity; // Weight in kg
   const sizePrice = weight * parseFloat(kopfplattePricesData["kg"][""]);
+  console.log("Size price:", sizePrice);
 
   // Calculate bohrungen price
-  const bohrungenCategory = bohrungenDurchmesser >= 10 && bohrungenDurchmesser <= 13
-    ? "10-13"
-    : bohrungenDurchmesser >= 14 && bohrungenDurchmesser <= 18
-      ? "14-18"
-      : "19-22";
+  let bohrungenCategory = "";
+
+  if (bohrungenDurchmesser >= 10 && bohrungenDurchmesser <= 13) {
+    bohrungenCategory = "10-13";
+  } else if (bohrungenDurchmesser >= 14 && bohrungenDurchmesser <= 18) {
+  bohrungenCategory = "14-18";
+  } else if (bohrungenDurchmesser >= 19 && bohrungenDurchmesser <= 22) {
+    bohrungenCategory = "19-22";
+  } else {
+    console.error("Invalid bohrungenDurchmesser value:", bohrungenDurchmesser);
+  }
+
   const bohrungenPrice = parseFloat(kopfplattePricesData[bohrungenCategory][""]) * bohrungen;
+  console.log("Bohrungen price:", bohrungenPrice);
+
 
   // Calculate other option prices
   const anschweisenPrice = parseFloat(kopfplattePricesData["anschweiben"][anschweisen]);
   const kehlnahtstarkePrice = parseFloat(kopfplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
   const dornePrice = parseFloat(kopfplattePricesData["dorne"][dorne.toString()]);
+  console.log("anschweisen Price:", anschweisenPrice);
+  console.log("kehlnahtstarke Price:", kehlnahtstarkePrice);
+  console.log("dorne Price:", dornePrice);
 
   const kopfplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice;
-
+  console.log("kopfplatte Price:", kopfplattePrice);
   return kopfplattePrice;
+  
 }
   
   
@@ -497,6 +512,8 @@ async function updatePrice(pricesData, kopfplattePricesData) {
 
 
 async function main() {
+  const kopfplattePricesData = await fetchKopfplattePrices();
+  const kopfplattePrices = calculateKopfplattePrice(kopfplattePricesData);
   const pricesData = await fetchPrices();
 
   document.getElementById("hea-size").addEventListener("change", () => updatePrice(pricesData));
