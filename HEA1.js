@@ -1,4 +1,3 @@
-<script>
 document.addEventListener('DOMContentLoaded', function () {
   const fileInput = document.getElementById('fileInput');
   const fileList = document.querySelector('.file-list');
@@ -116,9 +115,9 @@ function uploadToCloudinary(file) {
     xhr.send(formData);
   });
 }
-</script>
 
-<script>
+
+
   document.addEventListener('DOMContentLoaded', function () {
   const beamLengthInput = document.querySelector('#beam-length');
 
@@ -130,9 +129,8 @@ function uploadToCloudinary(file) {
     }
   });
 });
-</script>
 
-<script>
+
   $(document).ready(function() {
     // Find the addtocartbutton and its parent form
     const $addtocartbutton = $('[data-cart-trigger]');
@@ -251,9 +249,9 @@ function uploadToCloudinary(file) {
   });
 });
 
-</script>
 
-<script>
+
+
   const VAT_RATE = 0.19;
 
 async function fetchPrices() {
@@ -455,4 +453,4 @@ async function main() {
 main();
 
 
-</script>
+
