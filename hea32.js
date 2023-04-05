@@ -345,13 +345,6 @@ if (diameter >= 6 && diameter <= 13) {
 const bohrungenPricePerHole = parseFloat(pricesData[heaSize][diameterCategory]);
 const bohrungenPrice = bohrungenPricePerHole * heaBohrungen;
 
-console.log("Bohrungen price:", bohrungenPrice);
-
-  console.log("Stegbleche price:", stegblechePrice);
-  console.log("Ausklinkungen price:", ausklinkungenPrice);
-  console.log("Bugel price:", bugelPrice);
-  console.log("Weiteres price:", weiteresPrice);
-
   const optionsPrice = stegblechePrice + ausklinkungenPrice + bugelPrice + weiteresPrice + bohrungenPrice;
   return optionsPrice;
 }
@@ -457,22 +450,13 @@ function calculateFusplattePrice(fusplattePricesData) {
   const kehlnahtstarke = document.getElementById("fusplatte-kehlnahtstarke").value;
 
   const steelDensity = 7850; // in kg/m3
-  
-  console.log("Lange:", lange);
-  console.log("Breite:", breite);
-  console.log("Dicke:", dicke);
-  console.log("fusplatte prices data:", fusplattePricesData);
-  console.log("BohrungenDurchmesser:", bohrungenDurchmesser);
-  console.log("Bohrungen:", bohrungen);
 
   // Calculate size price
   const volume = lange * breite * dicke / 1000000000; // Convert to m3
   const weight = volume * steelDensity; // Weight in kg
-  console.log("Weight:", weight);
-  console.log("fusplattePricesData kg price:", parseFloat(fusplattePricesData["kg"]["default"]));
 
   const sizePrice = weight * parseFloat(fusplattePricesData["kg"]["default"]);
-  console.log("Size price:", sizePrice);
+ 
 
   // Calculate bohrungen price
   let bohrungenCategory = "";
@@ -488,32 +472,22 @@ function calculateFusplattePrice(fusplattePricesData) {
   }
 
   const bohrungenPrice = parseFloat(fusplattePricesData[bohrungenCategory][bohrungenCategory]) * bohrungen;
-  console.log("Bohrungen price:", bohrungenPrice);
-  console.log("fusplattePricesData bohrungenCategory price:", parseFloat(fusplattePricesData[bohrungenCategory][bohrungenCategory]));
 
   // Calculate other option prices
   const anschweisenPrice = parseFloat(fusplattePricesData["anschweiben"][anschweisen]);
   const kehlnahtstarkePrice = parseFloat(fusplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
-  console.log("anschweisen Price:", anschweisenPrice);
-  console.log("kehlnahtstarke Price:", kehlnahtstarkePrice);
 
   const fusplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice;
-  console.log("fusplatte Price:", fusplattePrice);
   return fusplattePrice;
-  console.log("fusplattePricesData:", fusplattePricesData);
 
 }
 
 
 function calculateTotalPrice(selectedValues, pricesData, beamMenge) {
   const lengthPrice = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
-    console.log("Length price:", lengthPrice);
   const optionsPrice = calculateOptionsPrice(selectedValues, pricesData);
-    console.log("Options price:", optionsPrice);
   const baseCuttingPrice = parseFloat(pricesData[selectedValues.heaSize]["schneiden"]);
-    console.log("Base cutting price:", baseCuttingPrice);
   const totalPrice = (lengthPrice + optionsPrice + baseCuttingPrice) * beamMenge;
-    console.log("Total price:", totalPrice);
   return totalPrice;
 }
 
