@@ -450,6 +450,10 @@ async function fetchKopfplattePrices() {
 }
 
 function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
+  console.log("calculateKopfplattePrice called");
+  console.log("selectedValues:", selectedValues);
+  console.log("kopfplattePricesData:", kopfplattePricesData);
+
   const {
     fusplatteLange,
     fusplatteBreite,
@@ -507,9 +511,10 @@ function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
 
   const bohrungenPricePerHole = findPrice(diameterCategory);
   const bohrungenPrice = bohrungenPricePerHole * bohrungen;
-
-  return plattePrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice + bohrungenPrice;
-}
+  
+  const kopfplattePrice = plattePrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice + bohrungenPrice;
+console.log("kopfplattePrice:", kopfplattePrice);
+return kopfplattePrice;
 
 
 function animateValue(element, start, end, duration) {
