@@ -482,7 +482,6 @@ function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
   const kehlnahtstarkePrice = findPrice("kehlnahtstarke", kehlnahtstarke);
   const dornePrice = findPrice("dorne", dorne);
 
-  // Calculate the bohrungen price
   let diameterCategory = "";
   const diameter = parseInt(bohrungenDurchmesser);
 
@@ -498,6 +497,11 @@ function calculateKopfplattePrice(selectedValues, kopfplattePricesData) {
 
   const bohrungenPricePerHole = findPrice(diameterCategory, diameterCategory);
   const bohrungenPrice = bohrungenPricePerHole * bohrungen;
+
+  if (isNaN(bohrungenPrice)) {
+    console.error("Bohrungen price calculation failed. Check if the data for the selected diameter category exists.");
+    return 0;
+  }
 
   return kopfplattePrice = plattePrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice + bohrungenPrice;
 }
