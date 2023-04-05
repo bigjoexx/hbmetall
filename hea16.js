@@ -402,7 +402,7 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   console.log("Bohrungen:", bohrungen);
 
   // Calculate size price
-  const volume = lange * breite * dicke * 0.000001; // Convert to m3
+  const volume = lange * breite * dicke / 1000000000; // Convert to m3
   const weight = volume * steelDensity; // Weight in kg
   console.log("Weight:", weight);
   console.log("KopfplattePricesData kg price:", parseFloat(kopfplattePricesData["kg"][""]));
@@ -423,7 +423,7 @@ function calculateKopfplattePrice(kopfplattePricesData) {
     console.error("Invalid bohrungenDurchmesser value:", bohrungenDurchmesser);
   }
 
-  const bohrungenPrice = parseFloat(kopfplattePricesData[bohrungenCategory][""]) * bohrungen;
+  const bohrungenPrice = parseFloat(kopfplattePricesData[bohrungenCategory]["bohrungenCategory"]) * bohrungen;
   console.log("Bohrungen price:", bohrungenPrice);
   console.log("KopfplattePricesData bohrungenCategory price:", parseFloat(kopfplattePricesData[bohrungenCategory][""]));
 
