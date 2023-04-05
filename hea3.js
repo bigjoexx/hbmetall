@@ -523,7 +523,8 @@ function animateValue(element, start, end, duration) {
 }
 
 
-async function updatePrice(pricesData, kopfplattePricesData) {
+async function updatePrice(pricesData) {
+  const kopfplattePricesData = await fetchKopfplattePrices();
   console.log("Prices data in updatePrice:", pricesData);
   const selectedValues = getSelectedValues();
   const totalPrice = calculateTotalPrice(selectedValues, pricesData, kopfplattePricesData, selectedValues.beamMenge);
