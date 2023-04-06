@@ -397,6 +397,9 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   const weight = volume * steelDensity; // Weight in kg
   
   const sizePrice = weight * parseFloat(kopfplattePricesData["kg"]["default"]);
+  
+  const baseCuttingPriceKopfplatte = parseFloat(kopfplattePricesData["schneiden"]["default"]);
+  console.log("kopflatte schneiden Price:", baseCuttingPriceKopfplatte);
 
   // Calculate bohrungen price
   let bohrungenCategory = "";
@@ -417,7 +420,7 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   const kehlnahtstarkePrice = parseFloat(kopfplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
   const dornePrice = parseFloat(kopfplattePricesData["dorne"][dorne.toString()]);
 
-  const kopfplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice;
+  const kopfplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice + baseCuttingPriceKopfplatte;
   return kopfplattePrice;
   
 }
@@ -473,6 +476,9 @@ function calculateFusplattePrice(fusplattePricesData) {
 
   const sizePrice = weight * parseFloat(fusplattePricesData["kg"]["default"]);
   console.log("Size price:", sizePrice);
+  
+  const baseCuttingPriceFusplatte = parseFloat(fusplattePricesData["schneiden"]["default"]);
+  console.log("fusplatte schneiden Price:", baseCuttingPriceFusplatte);
 
   // Calculate bohrungen price
   let bohrungenCategory = "";
@@ -497,7 +503,7 @@ function calculateFusplattePrice(fusplattePricesData) {
   console.log("anschweisen Price:", anschweisenPrice);
   console.log("kehlnahtstarke Price:", kehlnahtstarkePrice);
 
-  const fusplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice;
+  const fusplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + baseCuttingPriceFusplatte;
   console.log("fusplatte Price:", fusplattePrice);
   return fusplattePrice;
   console.log("fusplattePricesData:", fusplattePricesData);
