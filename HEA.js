@@ -137,8 +137,115 @@ function formDataToObject(formData) {
       
       const selectedValues = formDataToObject(formData);
       
+      const pricesData = await fetchPrices();
+      const beamMenge = parseInt(document.getElementById("beam-menge").value, 10);
+      const steelDensity = 7850; // in kg/m3
+
+      
       // Get the final weight
       const finalWeight = calculateFinalWeight(selectedValues, pricesData, beamMenge, steelDensity);
+      
+      //kopfpplatte
+      const kopfplatteCheckbox = document.getElementById("kopfplatte-checkbox");
+  if (!kopfplatteCheckbox.checked) {
+    return 0;
+  }
+
+  const lange = parseInt(document.getElementById("kopfplatte-lange").value, 10) || 0;
+  const breite = parseInt(document.getElementById("kopfplatte-breite").value, 10) || 0;
+  const dicke = parseInt(document.getElementById("kopfplatte-dicke").value, 10) || 0;
+  const anschweisen = document.getElementById("kopfplatte-anschweisen").value;
+  const bohrungen = parseInt(document.getElementById("kopfplatte-bohrungen").value, 10);
+  const bohrungenDurchmesser = parseInt(document.getElementById("kopfplatte-bohrungen-durchmesser").value, 10);
+  const kehlnahtstarke = document.getElementById("kopfplatte-kehlnahtstarke").value;
+  const dorne = parseInt(document.getElementById("kopfplatte-dorne").value, 10);
+
+  // Calculate size price
+  const volume = lange * breite * dicke / 1000000000; // Convert to m3
+  const weight = volume * steelDensity; // Weight in kg
+  
+  const sizePrice = weight * parseFloat(kopfplattePricesData["kg"]["default"]);
+  
+  const baseCuttingPriceKopfplatte = parseFloat(kopfplattePricesData["schneiden"]["default"]);
+
+  // Calculate bohrungen price
+  let bohrungenCategory = "";
+
+  if (bohrungenDurchmesser >= 10 && bohrungenDurchmesser <= 13) {
+    bohrungenCategory = "10-13";
+  } else if (bohrungenDurchmesser >= 14 && bohrungenDurchmesser <= 18) {
+  bohrungenCategory = "14-18";
+  } else if (bohrungenDurchmesser >= 19 && bohrungenDurchmesser <= 22) {
+    bohrungenCategory = "19-22";
+  } else {
+  }
+
+  const bohrungenPrice = parseFloat(kopfplattePricesData[bohrungenCategory][bohrungenCategory]) * bohrungen;
+
+  // Calculate other option prices
+  const anschweisenPrice = parseFloat(kopfplattePricesData["anschweiben"][anschweisen]);
+  const kehlnahtstarkePrice = parseFloat(kopfplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
+  const dornePrice = parseFloat(kopfplattePricesData["dorne"][dorne.toString()]);
+
+  const kopfplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + dornePrice + baseCuttingPriceKopfplatte;
+      
+      //fuplatte 
+      const fusplatteCheckbox = document.getElementById("fusplatte-checkbox");
+  if (!fusplatteCheckbox.checked) {
+    return 0;
+  }
+  
+  const lange = parseInt(document.getElementById("fusplatte-lange").value, 10) || 0;
+  const breite = parseInt(document.getElementById("fusplatte-breite").value, 10) || 0;
+  const dicke = parseInt(document.getElementById("fusplatte-dicke").value, 10) || 0;
+  const anschweisen = document.getElementById("fusplatte-anschweisen").value;
+  const bohrungen = parseInt(document.getElementById("fusplatte-bohrungen").value, 10);
+  const bohrungenDurchmesser = parseInt(document.getElementById("fusplatte-bohrungen-durchmesser").value, 10);
+  const kehlnahtstarke = document.getElementById("fusplatte-kehlnahtstarke").value;
+  
+
+  // Calculate size price
+  const volume = lange * breite * dicke / 1000000000; // Convert to m3
+  const weight = volume * steelDensity; // Weight in kg
+  console.log("Weight:", weight);
+  console.log("fusplattePricesData kg price:", parseFloat(fusplattePricesData["kg"]["default"]));
+
+  const sizePrice = weight * parseFloat(fusplattePricesData["kg"]["default"]);
+  console.log("Size price:", sizePrice);
+  
+  const baseCuttingPriceFusplatte = parseFloat(fusplattePricesData["schneiden"]["default"]);
+  console.log("fusplatte schneiden Price:", baseCuttingPriceFusplatte);
+
+  // Calculate bohrungen price
+  let bohrungenCategory = "";
+
+  if (bohrungenDurchmesser >= 10 && bohrungenDurchmesser <= 13) {
+    bohrungenCategory = "10-13";
+  } else if (bohrungenDurchmesser >= 14 && bohrungenDurchmesser <= 18) {
+  bohrungenCategory = "14-18";
+  } else if (bohrungenDurchmesser >= 19 && bohrungenDurchmesser <= 22) {
+    bohrungenCategory = "19-22";
+  } else {
+    console.error("Invalid bohrungenDurchmesser value:", bohrungenDurchmesser);
+  }
+
+  const bohrungenPrice = parseFloat(fusplattePricesData[bohrungenCategory][bohrungenCategory]) * bohrungen;
+  console.log("Bohrungen price:", bohrungenPrice);
+  console.log("fusplattePricesData bohrungenCategory price:", parseFloat(fusplattePricesData[bohrungenCategory][bohrungenCategory]));
+
+  // Calculate other option prices
+  const anschweisenPrice = parseFloat(fusplattePricesData["anschweiben"][anschweisen]);
+  const kehlnahtstarkePrice = parseFloat(fusplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
+  console.log("anschweisen Price:", anschweisenPrice);
+  console.log("kehlnahtstarke Price:", kehlnahtstarkePrice);
+
+  const fusplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + baseCuttingPriceFusplatte;
+      
+      
+      const lengthPrice = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
+      const optionsPrice = calculateOptionsPrice(selectedValues, pricesData);
+      const baseCuttingPrice = parseFloat(pricesData[selectedValues.heaSize]["schneiden"]);
+      const totalPrice = (lengthPrice + optionsPrice + baseCuttingPrice + kopfplattePrice + fusplattePrice) * beamMenge;
 
       // Get the final price with VAT
       const oldPriceWithoutVAT = 0;
