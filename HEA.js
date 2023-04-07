@@ -428,15 +428,15 @@ function calculateTotalPrice(selectedValues, pricesData, beamMenge, kopfplattePr
   return totalPrice;
 }
 
-function calculateFinalWeight(totalWeight, kopfplatteWeight, fusplatteWeight) {
-  const finalWeight = totalWeight + kopfplatteWeight + fusplatteWeight;
-  return finalWeight;
-}
+function calculateFinalWeight(selectedValues, pricesData, totalWeight, beamMenge, steelDensity, kopfplatteWeight, fusplatteWeight) {
+  if (selectedValues.beamLength <= 0 || selectedValues.beamMenge <= 0) {
+    return 0;
+  }
   const totalWeight = calculateTotalWeight(selectedValues, pricesData);
   const kopfplatteWeight = calculateKopfplatteWeight(selectedValues, steelDensity);
   const fusplatteWeight = calculatefusplatteWeight(selectedValues, steelDensity);
 
-  const finalWeight = calculateFinalWeight(totalWeight, kopfplatteWeight, fusplatteWeight);
+  const finalWeight = (totalWeight + kopfplatteWeight + fusplatteWeight) * beamMenge;
   console.log("Final weight:", finalWeight);
  
 
