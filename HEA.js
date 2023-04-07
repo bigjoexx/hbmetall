@@ -176,7 +176,7 @@ function getSelectedValues() {
 function calculateLengthPrice(heaSize, beamLength, pricesData) {
   if (!pricesData.hasOwnProperty(heaSize)) {
     console.error("HEA size not found in prices data:", heaSize);
-    return { lengthPrice: 0, totalWeight: 0 };
+    return 0;
   }
 
   const kgPerMeter = parseFloat(pricesData[heaSize]["kg/m"]);
@@ -185,7 +185,14 @@ function calculateLengthPrice(heaSize, beamLength, pricesData) {
   const pricePerKg = parseFloat(pricesData[heaSize]["kg"]);
   const lengthPrice = totalWeight * pricePerKg;
 
-  return { lengthPrice, totalWeight };
+  return lengthPrice;
+}
+
+function calculateTotalWeight(beamLength, pricesData) {
+  const kgPerMeter = parseFloat(pricesData[heaSize]["kg/m"]);
+  const beamLengthInMeters = beamLength / 1000;
+  const totalWeight = kgPerMeter * beamLengthInMeters;
+  return totalWeight;
 }
 
 function calculateOptionsPrice(selectedValues, pricesData) {
@@ -408,7 +415,7 @@ function calculateTotalPrice(selectedValues, pricesData, beamMenge, kopfplattePr
   if (selectedValues.beamLength <= 0 || selectedValues.beamMenge <= 0) {
     return 0;
   }
-  const { lengthPrice } = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
+  const lengthPrice = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
     console.log("Length price:", lengthPrice);
   const optionsPrice = calculateOptionsPrice(selectedValues, pricesData);
     console.log("Options price:", optionsPrice);
@@ -423,7 +430,7 @@ function calculateFinalWeight(totalWeight, kopfplatteWeight, fusplatteWeight) {
   const finalWeight = totalWeight + kopfplatteWeight + fusplatteWeight;
   return finalWeight;
 }
-  const { totalWeight } = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
+  const totalWeight = calculateTotalWeight(beamLength, pricesData)
   const kopfplatteWeight = calculateKopfplatteWeight(selectedValues, steelDensity);
   const fusplatteWeight = calculatefusplatteWeight(selectedValues, steelDensity);
 
