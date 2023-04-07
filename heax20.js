@@ -564,9 +564,8 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
       addToCart(productData);
 
    
-  };
- });
-})
+ }; // Keep the closing curly brace
+});
 
 
 
