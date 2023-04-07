@@ -181,9 +181,9 @@ function calculateLengthPrice(heaSize, beamLength, pricesData) {
 
   const kgPerMeter = parseFloat(pricesData[heaSize]["kg/m"]);
   const beamLengthInMeters = beamLength / 1000;
-  const totalWeight = kgPerMeter * beamLengthInMeters;
+  const weight = kgPerMeter * beamLengthInMeters;
   const pricePerKg = parseFloat(pricesData[heaSize]["kg"]);
-  const lengthPrice = totalWeight * pricePerKg;
+  const lengthPrice = weight * pricePerKg;
 
   return lengthPrice;
 }
@@ -193,8 +193,8 @@ function calculateTotalWeight(selectedValues, pricesData) {
   const beamLength = selectedValues.beamLength;
   const kgPerMeter = parseFloat(pricesData[heaSize]["kg/m"]);
   const beamLengthInMeters = beamLength / 1000;
-  const totalWeight = kgPerMeter * beamLengthInMeters;
-  return totalWeight;
+  const weight = kgPerMeter * beamLengthInMeters;
+  return weight;
 }
 
 function calculateOptionsPrice(selectedValues, pricesData) {
