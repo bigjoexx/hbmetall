@@ -10,6 +10,13 @@
   });
 });
 
+function formDataToObject(formData) {
+  const obj = {};
+  for (const [key, value] of formData.entries()) {
+    obj[key] = value;
+  }
+  return obj;
+}
 
   $(document).ready(function() {
   // Find the addtocartbutton and its parent form
@@ -17,9 +24,9 @@
   const $form = $addtocartbutton.closest('.configurator-form');
 
   // Define product details
-  const productCode = 'Your_Product_Code';
-  const productName = 'Your_Product_Name';
-  const imageUrl = 'Your_Product_Image_URL';
+  const productCode = 'hbhea';
+  const productName = 'HEA Stahlträger';
+  const imageUrl = 'https://uploads-ssl.webflow.com/640b1549e240298094f4ece2/641878d601c9aed8812112d2_Hea.png';
   const category = 'Produkte';
 
   // Click event handler for the addtocartbutton
@@ -127,6 +134,8 @@
       for (const [key, value] of formData.entries()) {
         console.log(`${key}: ${value}`);
       }
+      
+      const selectedValues = formDataToObject(formData);
       
       // Get the final weight
       const finalWeight = calculateFinalWeight(selectedValues, pricesData, beamMenge, steelDensity);
