@@ -428,7 +428,7 @@ function calculateTotalPrice(selectedValues, pricesData, beamMenge, kopfplattePr
   return totalPrice;
 }
 
-function calculateFinalWeight(selectedValues, pricesData, beamTotalWeight, beamMenge, steelDensity, kopfplatteWeight, fusplatteWeight) {
+function calculateFinalWeight(selectedValues, pricesData, beamMenge, steelDensity) {
   if (selectedValues.beamLength <= 0 || selectedValues.beamMenge <= 0) {
     return 0;
   }
