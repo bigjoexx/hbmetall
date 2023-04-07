@@ -188,7 +188,7 @@ function calculateLengthPrice(heaSize, beamLength, pricesData) {
   return lengthPrice;
 }
 
-function calculateTotalWeight(beamLength, pricesData) {
+function calculateTotalWeight(heaSize, beamLength, pricesData) {
   const kgPerMeter = parseFloat(pricesData[heaSize]["kg/m"]);
   const beamLengthInMeters = beamLength / 1000;
   const totalWeight = kgPerMeter * beamLengthInMeters;
@@ -430,7 +430,7 @@ function calculateFinalWeight(totalWeight, kopfplatteWeight, fusplatteWeight) {
   const finalWeight = totalWeight + kopfplatteWeight + fusplatteWeight;
   return finalWeight;
 }
-  const totalWeight = calculateTotalWeight(beamLength, pricesData)
+  const totalWeight = calculateTotalWeight(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
   const kopfplatteWeight = calculateKopfplatteWeight(selectedValues, steelDensity);
   const fusplatteWeight = calculatefusplatteWeight(selectedValues, steelDensity);
 
