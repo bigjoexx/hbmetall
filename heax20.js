@@ -562,10 +562,7 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
       // Call the addToCart function
       addToCart(productData);
 
-    } else {
-      console.log('Form is not valid.');
-      $('<input type="submit"/>').hide().appendTo($form).click().remove();
-    }
+   
   });
 });
 
