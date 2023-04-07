@@ -173,7 +173,6 @@ function createFoxyCartLink(foxyData) {
   });
 
   return link;
-}
    }
  });
 
