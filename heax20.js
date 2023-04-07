@@ -563,7 +563,7 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
       addToCart(productData);
 
    
-  });
+  };
 });
 
 }
