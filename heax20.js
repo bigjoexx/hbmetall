@@ -558,7 +558,7 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
         category: category,
         weight: finalWeight,
       };
-    });   
+    };   
 
       // Call the addToCart function
       addToCart(productData);
