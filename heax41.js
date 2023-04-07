@@ -156,6 +156,8 @@
       weight: parseFloat(document.getElementById("final-weight").value),
     };
     
+    console.log("FoxyData:", foxyData);
+    
   const foxyLink = createFoxyCartLink(foxyData);
   $('body').append(foxyLink);
   foxyLink.click();
