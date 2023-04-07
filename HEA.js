@@ -288,15 +288,6 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   const sizePrice = weight * parseFloat(kopfplattePricesData["kg"]["default"]);
   
   const baseCuttingPriceKopfplatte = parseFloat(kopfplattePricesData["schneiden"]["default"]);
-  
-  function calculateKopfplatteWeight(selectedValues, steelDensity) {
-  const lange = selectedValues.kopfplatteLange;
-  const breite = selectedValues.kopfplatteBreite;
-  const dicke = selectedValues.kopfplatteDicke;
-  const volume = lange * breite * dicke / 1000000000; // Convert to m3
-  const weight = volume * steelDensity; // Weight in kg
-  return weight;
-}
 
   // Calculate bohrungen price
   let bohrungenCategory = "";
@@ -322,7 +313,15 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   
 }
 
-  
+function calculateKopfplatteWeight(selectedValues, steelDensity) {
+  const lange = selectedValues.kopfplatteLange;
+  const breite = selectedValues.kopfplatteBreite;
+  const dicke = selectedValues.kopfplatteDicke;
+  const volume = lange * breite * dicke / 1000000000; // Convert to m3
+  const weight = volume * steelDensity; // Weight in kg
+  return weight;
+}  
+
   //Fusplatte
 
   async function fetchFusplattePrices() {
@@ -369,15 +368,6 @@ function calculateFusplattePrice(fusplattePricesData) {
   const sizePrice = weight * parseFloat(fusplattePricesData["kg"]["default"]);
   console.log("Size price:", sizePrice);
   
-  function calculatefusplatteWeight(selectedValues, steelDensity) {
-  const lange = selectedValues.fusplatteLange;
-  const breite = selectedValues.fusplatteBreite;
-  const dicke = selectedValues.fusplatteDicke;
-  const volume = lange * breite * dicke / 1000000000; // Convert to m3
-  const weight = volume * steelDensity; // Weight in kg
-  return weight;
-}
-  
   const baseCuttingPriceFusplatte = parseFloat(fusplattePricesData["schneiden"]["default"]);
   console.log("fusplatte schneiden Price:", baseCuttingPriceFusplatte);
 
@@ -411,7 +401,14 @@ function calculateFusplattePrice(fusplattePricesData) {
 
 }
 
-
+function calculatefusplatteWeight(selectedValues, steelDensity) {
+  const lange = selectedValues.fusplatteLange;
+  const breite = selectedValues.fusplatteBreite;
+  const dicke = selectedValues.fusplatteDicke;
+  const volume = lange * breite * dicke / 1000000000; // Convert to m3
+  const weight = volume * steelDensity; // Weight in kg
+  return weight;
+}
 
 function calculateTotalPrice(selectedValues, pricesData, beamMenge, kopfplattePrice, fusplattePrice) {
   if (selectedValues.beamLength <= 0 || selectedValues.beamMenge <= 0) {
