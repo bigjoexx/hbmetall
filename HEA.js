@@ -232,8 +232,7 @@ function formDataToObject(formData) {
       addToCart(productData);
 
     }
-  });
-});
+  }
 
 
 
