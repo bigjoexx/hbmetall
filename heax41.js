@@ -149,7 +149,7 @@
     const foxyData = {
       code: productData.productCode,
       name: productData.productName,
-      price: parseFloat(document.getElementById("price-vat").textContent),
+      price: parseFloat(document.getElementById("foxyprice").value),
       options: JSON.stringify(Object.fromEntries(formData.entries())),
       image: productData.imageUrl,
       category: productData.category,
@@ -561,6 +561,7 @@ function setDefaultValues() {
 function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) {
   const priceWithoutVAT = totalPrice;
   const priceWithVAT = totalPrice * (1 + VAT_RATE);
+  document.getElementById("foxyprice").value = priceWithVAT.toFixed(2);
 
   const priceWithVATElem = document.getElementById("price-vat");
   const priceWithoutVATElem = document.getElementById("price-novat");
