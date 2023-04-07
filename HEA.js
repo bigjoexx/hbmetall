@@ -137,7 +137,10 @@ function formDataToObject(formData) {
       
       const selectedValues = formDataToObject(formData);
       
+      async function main() {
       const pricesData = await fetchPrices();
+        main();
+        
       const beamMenge = parseInt(document.getElementById("beam-menge").value, 10);
       const steelDensity = 7850; // in kg/m3
 
