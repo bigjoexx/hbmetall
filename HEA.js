@@ -12,22 +12,28 @@
 
 
   $(document).ready(function() {
-    // Find the addtocartbutton and its parent form
-    const $addtocartbutton = $('[data-cart-trigger]');
-    const $form = $addtocartbutton.closest('.configurator-form');
+  // Find the addtocartbutton and its parent form
+  const $addtocartbutton = $('[data-cart-trigger]');
+  const $form = $addtocartbutton.closest('.configurator-form');
 
-    // Click event handler for the addtocartbutton
-    $addtocartbutton.on('click', function(event) {
-      // Prevent the default behavior
-      event.preventDefault();
+  // Define product details
+  const productCode = 'Your_Product_Code';
+  const productName = 'Your_Product_Name';
+  const imageUrl = 'Your_Product_Image_URL';
+  const category = 'Produkte';
 
-      // Check form validity
-      if ($form[0].checkValidity()) {
-        // Handle form data and add to cart
-        console.log('Form is valid.');
+  // Click event handler for the addtocartbutton
+  $addtocartbutton.on('click', function(event) {
+    // Prevent the default behavior
+    event.preventDefault();
 
-        // Extract form data
-        const formData = new FormData($form[0]);
+    // Check form validity
+    if ($form[0].checkValidity()) {
+      // Handle form data and add to cart
+      console.log('Form is valid.');
+
+      // Extract form data
+      const formData = new FormData($form[0]);
 
         const kopfplatteCheckbox = document.querySelector('#kopfplatte-checkbox');
 
@@ -121,6 +127,28 @@
       for (const [key, value] of formData.entries()) {
         console.log(`${key}: ${value}`);
       }
+      
+      // Get the final weight
+      const finalWeight = calculateFinalWeight(selectedValues, pricesData, beamMenge, steelDensity);
+
+      // Get the final price with VAT
+      const oldPriceWithoutVAT = 0;
+      const oldPriceWithVAT = 0;
+      const finalPriceWithVAT = updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice);
+
+      // Prepare productData object
+      const productData = {
+        productCode: productCode,
+        productName: productName,
+        priceWithVAT: finalPriceWithVAT,
+        configuration: formData,
+        imageUrl: imageUrl,
+        category: category,
+        weight: finalWeight,
+      };
+
+      // Call the addToCart function
+      addToCart(productData);
 
     } else {
       console.log('Form is not valid.');
@@ -470,6 +498,7 @@ function calculateFinalWeight(selectedValues, pricesData, beamMenge, steelDensit
 
   const finalWeight = (beamTotalWeight + kopfplatteWeight + fusplatteWeight) * beamMenge;
   console.log("Final weight:", finalWeight);
+  return finalWeight;
 }
 
 
@@ -521,6 +550,8 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
   if (priceWithoutVATElem) {
     animateValue(priceWithoutVATElem, oldPriceWithoutVAT, priceWithoutVAT, 500);
   }
+  
+  return priceWithVAT;
 }
 
 
