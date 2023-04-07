@@ -176,7 +176,7 @@ function getSelectedValues() {
 function calculateLengthPrice(heaSize, beamLength, pricesData) {
   if (!pricesData.hasOwnProperty(heaSize)) {
     console.error("HEA size not found in prices data:", heaSize);
-    return 0;
+    return { lengthPrice: 0, totalWeight: 0 };
   }
 
   const kgPerMeter = parseFloat(pricesData[heaSize]["kg/m"]);
@@ -185,7 +185,8 @@ function calculateLengthPrice(heaSize, beamLength, pricesData) {
   const pricePerKg = parseFloat(pricesData[heaSize]["kg"]);
   const lengthPrice = totalWeight * pricePerKg;
 
-  return lengthPrice;
+  return { lengthPrice, totalWeight };
+  console.log("Total weight:", totalWeight);
 }
 
 function calculateOptionsPrice(selectedValues, pricesData) {
