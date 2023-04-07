@@ -198,49 +198,11 @@ function formDataToObject(formData) {
     return 0;
   }
   
-  const lange = parseInt(document.getElementById("fusplatte-lange").value, 10) || 0;
-  const breite = parseInt(document.getElementById("fusplatte-breite").value, 10) || 0;
-  const dicke = parseInt(document.getElementById("fusplatte-dicke").value, 10) || 0;
-  const anschweisen = document.getElementById("fusplatte-anschweisen").value;
-  const bohrungen = parseInt(document.getElementById("fusplatte-bohrungen").value, 10);
-  const bohrungenDurchmesser = parseInt(document.getElementById("fusplatte-bohrungen-durchmesser").value, 10);
-  const kehlnahtstarke = document.getElementById("fusplatte-kehlnahtstarke").value;
-  
-
-  // Calculate size price
-  const volume = lange * breite * dicke / 1000000000; // Convert to m3
-  const weight = volume * steelDensity; // Weight in kg
-  console.log("Weight:", weight);
-  console.log("fusplattePricesData kg price:", parseFloat(fusplattePricesData["kg"]["default"]));
-
-  const sizePrice = weight * parseFloat(fusplattePricesData["kg"]["default"]);
-  console.log("Size price:", sizePrice);
   
   const baseCuttingPriceFusplatte = parseFloat(fusplattePricesData["schneiden"]["default"]);
   console.log("fusplatte schneiden Price:", baseCuttingPriceFusplatte);
 
-  // Calculate bohrungen price
-  let bohrungenCategory = "";
-
-  if (bohrungenDurchmesser >= 10 && bohrungenDurchmesser <= 13) {
-    bohrungenCategory = "10-13";
-  } else if (bohrungenDurchmesser >= 14 && bohrungenDurchmesser <= 18) {
-  bohrungenCategory = "14-18";
-  } else if (bohrungenDurchmesser >= 19 && bohrungenDurchmesser <= 22) {
-    bohrungenCategory = "19-22";
-  } else {
-    console.error("Invalid bohrungenDurchmesser value:", bohrungenDurchmesser);
-  }
-
-  const bohrungenPrice = parseFloat(fusplattePricesData[bohrungenCategory][bohrungenCategory]) * bohrungen;
-  console.log("Bohrungen price:", bohrungenPrice);
-  console.log("fusplattePricesData bohrungenCategory price:", parseFloat(fusplattePricesData[bohrungenCategory][bohrungenCategory]));
-
-  // Calculate other option prices
-  const anschweisenPrice = parseFloat(fusplattePricesData["anschweiben"][anschweisen]);
-  const kehlnahtstarkePrice = parseFloat(fusplattePricesData["kehlnahtstarke"][kehlnahtstarke]);
-  console.log("anschweisen Price:", anschweisenPrice);
-  console.log("kehlnahtstarke Price:", kehlnahtstarkePrice);
+  
 
   const fusplattePrice = sizePrice + bohrungenPrice + anschweisenPrice + kehlnahtstarkePrice + baseCuttingPriceFusplatte;
       
