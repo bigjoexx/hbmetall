@@ -155,6 +155,25 @@
       category: productData.category,
       weight: parseFloat(document.getElementById("final-weight").value),
     };
+    
+  const foxyLink = createFoxyCartLink(foxyData);
+  $('body').append(foxyLink);
+  foxyLink.click();
+  foxyLink.remove();
+}
+
+function createFoxyCartLink(foxyData) {
+  const link = $('<a></a>', {
+    href: 'https://hbmetallbau.foxycart.com/cart?'+$.param(foxyData),
+    'class': 'foxy-add-to-cart'
+  });
+
+  link.css({
+    display: 'none'
+  });
+
+  return link;
+}
    }
  });
 
