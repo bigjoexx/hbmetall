@@ -323,6 +323,10 @@ function calculateKopfplattePrice(kopfplattePricesData) {
 }
 
 function calculateKopfplatteWeight(selectedValues, steelDensity) {
+    const kopfplatteCheckbox = document.getElementById("kopfplatte-checkbox");
+  if (!kopfplatteCheckbox.checked) {
+    return 0;
+  }
   const lange = parseInt(document.getElementById("kopfplatte-lange").value, 10) || 0;
   const breite = parseInt(document.getElementById("kopfplatte-breite").value, 10) || 0;
   const dicke = parseInt(document.getElementById("kopfplatte-dicke").value, 10) || 0;
@@ -420,6 +424,10 @@ function calculateFusplattePrice(fusplattePricesData) {
 }
 
 function calculatefusplatteWeight(selectedValues, steelDensity) {
+    const fusplatteCheckbox = document.getElementById("fusplatte-checkbox");
+  if (!fusplatteCheckbox.checked) {
+    return 0;
+  }
   const lange = parseInt(document.getElementById("fusplatte-lange").value, 10) || 0;
   const breite = parseInt(document.getElementById("fusplatte-breite").value, 10) || 0;
   const dicke = parseInt(document.getElementById("fusplatte-dicke").value, 10) || 0;
