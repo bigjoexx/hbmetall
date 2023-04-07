@@ -564,8 +564,7 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
 
    
   };
-});
-
+ };
 }
 
 
