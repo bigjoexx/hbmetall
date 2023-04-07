@@ -194,6 +194,15 @@ function calculateBeamTotalWeight(selectedValues, pricesData) {
   const kgPerMeter = parseFloat(pricesData[heaSize]["kg/m"]);
   const beamLengthInMeters = beamLength / 1000;
   const weight = kgPerMeter * beamLengthInMeters;
+  
+  console.log('Selected Values:', selectedValues);
+  console.log('Prices Data:', pricesData);
+  console.log('HEA Size:', heaSize);
+  console.log('Beam Length:', beamLength);
+  console.log('kg/m:', kgPerMeter);
+  console.log('Beam Length in Meters:', beamLengthInMeters);
+  console.log('Weight:', weight);
+  
   return weight;
 }
 
@@ -319,6 +328,15 @@ function calculateKopfplatteWeight(selectedValues, steelDensity) {
   const dicke = selectedValues.kopfplatteDicke;
   const volume = lange * breite * dicke / 1000000000; // Convert to m3
   const weight = volume * steelDensity; // Weight in kg
+  
+  console.log('Selected Values:', selectedValues);
+  console.log('Steel Density:', steelDensity);
+  console.log('Lange:', lange);
+  console.log('Breite:', breite);
+  console.log('Dicke:', dicke);
+  console.log('Volume:', volume);
+  console.log('Weight:', weight);
+  
   return weight;
 }  
 
@@ -407,6 +425,15 @@ function calculatefusplatteWeight(selectedValues, steelDensity) {
   const dicke = selectedValues.fusplatteDicke;
   const volume = lange * breite * dicke / 1000000000; // Convert to m3
   const weight = volume * steelDensity; // Weight in kg
+  
+  console.log('Selected Values:', selectedValues);
+  console.log('Steel Density:', steelDensity);
+  console.log('Lange:', lange);
+  console.log('Breite:', breite);
+  console.log('Dicke:', dicke);
+  console.log('Volume:', volume);
+  console.log('Weight:', weight);
+  
   return weight;
 }
 
