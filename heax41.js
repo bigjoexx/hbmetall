@@ -156,7 +156,7 @@
       weight: parseFloat(document.getElementById("final-weight").value),
     };
    }
-
+ });
 
 
 
