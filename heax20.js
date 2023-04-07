@@ -18,156 +18,7 @@ function formDataToObject(formData) {
   return obj;
 }
 
-  $(document).ready(function() {
-  // Find the addtocartbutton and its parent form
-  const $addtocartbutton = $('[data-cart-trigger]');
-  const $form = $addtocartbutton.closest('.configurator-form');
-
-  // Define product details
-  const productCode = 'hbhea';
-  const productName = 'HEA Stahlträger';
-  const imageUrl = 'https://uploads-ssl.webflow.com/640b1549e240298094f4ece2/641878d601c9aed8812112d2_Hea.png';
-  const category = 'Produkte';
-
-  // Click event handler for the addtocartbutton
-  $addtocartbutton.on('click', function(event) {
-    // Prevent the default behavior
-    event.preventDefault();
-
-    // Check form validity
-    if ($form[0].checkValidity()) {
-      // Handle form data and add to cart
-      console.log('Form is valid.');
-
-      // Extract form data
-      const formData = new FormData($form[0]);
-
-        const kopfplatteCheckbox = document.querySelector('#kopfplatte-checkbox');
-
-      if (kopfplatteCheckbox && kopfplatteCheckbox.checked) {
-        const kopfplatteLangeInput = document.querySelector('select[name="kopfplatte-lange"]');
-        const kopfplatteBreiteInput = document.querySelector('select[name="kopfplatte-breite"]');
-        const kopfplatteDickeInput = document.querySelector('select[name="kopfplatte-dicke"]');
-        const kopfplatteAnschweisenInput = document.querySelector('select[name="kopfplatte-anschweisen"]');
-        const kopfplatteBohrungenInput = document.querySelector('select[name="kopfplatte-bohrungen"]');
-        const kopfplatteBohrungenDurchmesserInput = document.querySelector('select[name="kopfplatte-bohrungen-durchmesser"]');
-        const kopfplatteKehlnahtstarkeInput = document.querySelector('select[name="kopfplatte-kehlnahtstarke"]');
-        const kopfplatteDorneInput = document.querySelector('select[name="kopfplatte-dorne"]');
-
-        if (kopfplatteLangeInput) {
-          formData.set('kopfplatte-lange', kopfplatteLangeInput.value);
-        }
-        if (kopfplatteBreiteInput) {
-          formData.set('kopfplatte-breite', kopfplatteBreiteInput.value);
-        }
-        if (kopfplatteDickeInput) {
-          formData.set('kopfplatte-dicke', kopfplatteDickeInput.value);
-        }
-        if (kopfplatteAnschweisenInput) {
-          formData.set('kopfplatte-anschweisen', kopfplatteAnschweisenInput.value);
-        }
-        if (kopfplatteBohrungenInput) {
-          formData.set('kopfplatte-bohrungen', kopfplatteBohrungenInput.value);
-        }
-        if (kopfplatteBohrungenDurchmesserInput) {
-          formData.set('kopfplatte-bohrungen-durchmesser', kopfplatteBohrungenDurchmesserInput.value);
-        }
-        if (kopfplatteKehlnahtstarkeInput) {
-          formData.set('kopfplatte-kehlnahtstarke', kopfplatteKehlnahtstarkeInput.value);
-        }
-        if (kopfplatteDorneInput) {
-          formData.set('kopfplatte-dorne', kopfplatteDorneInput.value);
-        }
-      } else {
-        formData.delete('kopfplatte-lange');
-        formData.delete('kopfplatte-breite');
-        formData.delete('kopfplatte-dicke');
-        formData.delete('kopfplatte-anschweisen');
-        formData.delete('kopfplatte-bohrungen');
-        formData.delete('kopfplatte-bohrungen-durchmesser');
-        formData.delete('kopfplatte-kehlnahtstarke');
-        formData.delete('kopfplatte-dorne');
-      }
-
-      const fusplatteCheckbox = document.querySelector('#fusplatte-checkbox');
-
-      if (fusplatteCheckbox && fusplatteCheckbox.checked) {
-        const fusplatteLangeInput = document.querySelector('select[name="fusplatte-lange"]');
-        const fusplatteBreiteInput = document.querySelector('select[name="fusplatte-breite"]');
-        const fusplatteDickeInput = document.querySelector('select[name="fusplatte-dicke"]');
-        const fusplatteAnschweisenInput = document.querySelector('select[name="fusplatte-anschweisen"]');
-        const fusplatteBohrungenInput = document.querySelector('select[name="fusplatte-bohrungen"]');
-        const fusplatteBohrungenDurchmesserInput = document.querySelector('select[name="fusplatte-bohrungen-durchmesser"]');
-        const fusplatteKehlnahtstarkeInput = document.querySelector('select[name="fusplatte-kehlnahtstarke"]');
-
-        if (fusplatteLangeInput) {
-          formData.set('fusplatte-lange', fusplatteLangeInput.value);
-        }
-        if (fusplatteBreiteInput) {
-          formData.set('fusplatte-breite', fusplatteBreiteInput.value);
-        }
-        if (fusplatteDickeInput) {
-          formData.set('fusplatte-dicke', fusplatteDickeInput.value);
-        }
-        if (fusplatteAnschweisenInput) {
-          formData.set('fusplatte-anschweisen', fusplatteAnschweisenInput.value);
-        }
-        if (fusplatteBohrungenInput) {
-          formData.set('fusplatte-bohrungen', fusplatteBohrungenInput.value);
-        }
-        if (fusplatteBohrungenDurchmesserInput) {
-          formData.set('fusplatte-bohrungen-durchmesser', fusplatteBohrungenDurchmesserInput.value);
-        }
-        if (fusplatteKehlnahtstarkeInput) {
-          formData.set('fusplatte-kehlnahtstarke', fusplatteKehlnahtstarkeInput.value);
-        }
-      } else {
-        formData.delete('fusplatte-lange');
-        formData.delete('fusplatte-breite');
-        formData.delete('fusplatte-dicke');
-        formData.delete('fusplatte-anschweisen');
-        formData.delete('fusplatte-bohrungen');
-        formData.delete('fusplatte-bohrungen-durchmesser');
-        formData.delete('fusplatte-kehlnahtstarke');
-      }
-
-      for (const [key, value] of formData.entries()) {
-        console.log(`${key}: ${value}`);
-      }
-      
-      const selectedValues = formDataToObject(formData);
-      
-      // Get the final weight
-      const finalWeight = calculateFinalWeight(selectedValues, pricesData, beamMenge, steelDensity);
-
-      // Get the final price with VAT
-      const oldPriceWithoutVAT = 0;
-      const oldPriceWithVAT = 0;
-      const finalPriceWithVAT = updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice);
-
-      // Prepare productData object
-      const productData = {
-        productCode: productCode,
-        productName: productName,
-        priceWithVAT: finalPriceWithVAT,
-        configuration: formData,
-        imageUrl: imageUrl,
-        category: category,
-        weight: finalWeight,
-      };
-
-      // Call the addToCart function
-      addToCart(productData);
-
-    } else {
-      console.log('Form is not valid.');
-      $('<input type="submit"/>').hide().appendTo($form).click().remove();
-    }
-  });
-});
-
-
-
+  
 
   const VAT_RATE = 0.19;
 
@@ -561,6 +412,163 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
   }
   
   return priceWithVAT;
+  
+  $(document).ready(function() {
+  // Find the addtocartbutton and its parent form
+  const $addtocartbutton = $('[data-cart-trigger]');
+  const $form = $addtocartbutton.closest('.configurator-form');
+
+  // Define product details
+  const productCode = 'hbhea';
+  const productName = 'HEA Stahlträger';
+  const imageUrl = 'https://uploads-ssl.webflow.com/640b1549e240298094f4ece2/641878d601c9aed8812112d2_Hea.png';
+  const category = 'Produkte';
+
+  // Click event handler for the addtocartbutton
+  $addtocartbutton.on('click', function(event) {
+    // Prevent the default behavior
+    event.preventDefault();
+
+    // Check form validity
+    if ($form[0].checkValidity()) {
+      // Handle form data and add to cart
+      console.log('Form is valid.');
+
+      // Extract form data
+      const formData = new FormData($form[0]);
+
+        const kopfplatteCheckbox = document.querySelector('#kopfplatte-checkbox');
+
+      if (kopfplatteCheckbox && kopfplatteCheckbox.checked) {
+        const kopfplatteLangeInput = document.querySelector('select[name="kopfplatte-lange"]');
+        const kopfplatteBreiteInput = document.querySelector('select[name="kopfplatte-breite"]');
+        const kopfplatteDickeInput = document.querySelector('select[name="kopfplatte-dicke"]');
+        const kopfplatteAnschweisenInput = document.querySelector('select[name="kopfplatte-anschweisen"]');
+        const kopfplatteBohrungenInput = document.querySelector('select[name="kopfplatte-bohrungen"]');
+        const kopfplatteBohrungenDurchmesserInput = document.querySelector('select[name="kopfplatte-bohrungen-durchmesser"]');
+        const kopfplatteKehlnahtstarkeInput = document.querySelector('select[name="kopfplatte-kehlnahtstarke"]');
+        const kopfplatteDorneInput = document.querySelector('select[name="kopfplatte-dorne"]');
+
+        if (kopfplatteLangeInput) {
+          formData.set('kopfplatte-lange', kopfplatteLangeInput.value);
+        }
+        if (kopfplatteBreiteInput) {
+          formData.set('kopfplatte-breite', kopfplatteBreiteInput.value);
+        }
+        if (kopfplatteDickeInput) {
+          formData.set('kopfplatte-dicke', kopfplatteDickeInput.value);
+        }
+        if (kopfplatteAnschweisenInput) {
+          formData.set('kopfplatte-anschweisen', kopfplatteAnschweisenInput.value);
+        }
+        if (kopfplatteBohrungenInput) {
+          formData.set('kopfplatte-bohrungen', kopfplatteBohrungenInput.value);
+        }
+        if (kopfplatteBohrungenDurchmesserInput) {
+          formData.set('kopfplatte-bohrungen-durchmesser', kopfplatteBohrungenDurchmesserInput.value);
+        }
+        if (kopfplatteKehlnahtstarkeInput) {
+          formData.set('kopfplatte-kehlnahtstarke', kopfplatteKehlnahtstarkeInput.value);
+        }
+        if (kopfplatteDorneInput) {
+          formData.set('kopfplatte-dorne', kopfplatteDorneInput.value);
+        }
+      } else {
+        formData.delete('kopfplatte-lange');
+        formData.delete('kopfplatte-breite');
+        formData.delete('kopfplatte-dicke');
+        formData.delete('kopfplatte-anschweisen');
+        formData.delete('kopfplatte-bohrungen');
+        formData.delete('kopfplatte-bohrungen-durchmesser');
+        formData.delete('kopfplatte-kehlnahtstarke');
+        formData.delete('kopfplatte-dorne');
+      }
+
+      const fusplatteCheckbox = document.querySelector('#fusplatte-checkbox');
+
+      if (fusplatteCheckbox && fusplatteCheckbox.checked) {
+        const fusplatteLangeInput = document.querySelector('select[name="fusplatte-lange"]');
+        const fusplatteBreiteInput = document.querySelector('select[name="fusplatte-breite"]');
+        const fusplatteDickeInput = document.querySelector('select[name="fusplatte-dicke"]');
+        const fusplatteAnschweisenInput = document.querySelector('select[name="fusplatte-anschweisen"]');
+        const fusplatteBohrungenInput = document.querySelector('select[name="fusplatte-bohrungen"]');
+        const fusplatteBohrungenDurchmesserInput = document.querySelector('select[name="fusplatte-bohrungen-durchmesser"]');
+        const fusplatteKehlnahtstarkeInput = document.querySelector('select[name="fusplatte-kehlnahtstarke"]');
+
+        if (fusplatteLangeInput) {
+          formData.set('fusplatte-lange', fusplatteLangeInput.value);
+        }
+        if (fusplatteBreiteInput) {
+          formData.set('fusplatte-breite', fusplatteBreiteInput.value);
+        }
+        if (fusplatteDickeInput) {
+          formData.set('fusplatte-dicke', fusplatteDickeInput.value);
+        }
+        if (fusplatteAnschweisenInput) {
+          formData.set('fusplatte-anschweisen', fusplatteAnschweisenInput.value);
+        }
+        if (fusplatteBohrungenInput) {
+          formData.set('fusplatte-bohrungen', fusplatteBohrungenInput.value);
+        }
+        if (fusplatteBohrungenDurchmesserInput) {
+          formData.set('fusplatte-bohrungen-durchmesser', fusplatteBohrungenDurchmesserInput.value);
+        }
+        if (fusplatteKehlnahtstarkeInput) {
+          formData.set('fusplatte-kehlnahtstarke', fusplatteKehlnahtstarkeInput.value);
+        }
+      } else {
+        formData.delete('fusplatte-lange');
+        formData.delete('fusplatte-breite');
+        formData.delete('fusplatte-dicke');
+        formData.delete('fusplatte-anschweisen');
+        formData.delete('fusplatte-bohrungen');
+        formData.delete('fusplatte-bohrungen-durchmesser');
+        formData.delete('fusplatte-kehlnahtstarke');
+      }
+
+      for (const [key, value] of formData.entries()) {
+        console.log(`${key}: ${value}`);
+      }
+      
+      const selectedValues = formDataToObject(formData);
+      
+      async function main() {
+  
+      const pricesData = await fetchPrices();
+        main();
+      
+      const beamMenge = parseInt(document.getElementById("beam-menge").value, 10);
+      const steelDensity = 7850;
+        
+      // Get the final weight
+      const finalWeight = calculateFinalWeight(selectedValues, pricesData, beamMenge, steelDensity);
+
+      // Get the final price with VAT
+      const oldPriceWithoutVAT = 0;
+      const oldPriceWithVAT = 0;
+      const finalPriceWithVAT = updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice);
+
+      // Prepare productData object
+      const productData = {
+        productCode: productCode,
+        productName: productName,
+        priceWithVAT: finalPriceWithVAT,
+        configuration: formData,
+        imageUrl: imageUrl,
+        category: category,
+        weight: finalWeight,
+      };
+
+      // Call the addToCart function
+      addToCart(productData);
+
+    } else {
+      console.log('Form is not valid.');
+      $('<input type="submit"/>').hide().appendTo($form).click().remove();
+    }
+  });
+});
+
 }
 
 
