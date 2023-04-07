@@ -527,6 +527,9 @@ async function updatePrice(pricesData) {
   const selectedValues = getSelectedValues();
   const totalPriceHEA = calculateTotalPrice(selectedValues, pricesData, selectedValues.beamMenge, totalPriceKopfplatte, totalPriceFusplatte);
   
+  const steelDensity = 7850; // Assuming the steel density is 7850 kg/m³. You can replace it with the appropriate value.
+  calculateFinalWeight(selectedValues, pricesData, selectedValues.beamMenge, steelDensity);
+  
   const totalPrice = totalPriceHEA;
 
   const priceWithoutVATElem = document.getElementById("price-novat");
