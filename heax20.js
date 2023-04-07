@@ -536,6 +536,7 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
   
       const pricesData = await fetchPrices();
        
+      }
       
       const beamMenge = parseInt(document.getElementById("beam-menge").value, 10);
       const steelDensity = 7850;
@@ -563,9 +564,6 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
       // Call the addToCart function
       addToCart(productData);
 
-   
- }
-
 
 
 
@@ -584,9 +582,6 @@ function animateValue(element, start, end, duration) {
       window.requestAnimationFrame(updateValue);
     }
   }
-
-  window.requestAnimationFrame(updateValue);
-}
 
 
 async function updatePrice(pricesData) {
