@@ -438,7 +438,7 @@ function calculateFinalWeight(selectedValues, pricesData, beamMenge, steelDensit
 
   const finalWeight = (beamTotalWeight + kopfplatteWeight + fusplatteWeight) * beamMenge;
   console.log("Final weight:", finalWeight);
- 
+}
 
 
 function updateWarningMessage(beamLength, beamMenge) {
