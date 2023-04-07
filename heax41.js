@@ -123,38 +123,39 @@
         console.log(`${key}: ${value}`);
       }
         
-      function getProductData() {
-  // Get product information from the CMS
-       const productCode = "hbhea"; // Replace with the CMS code for the product
-       const productName = "HEA Stahlträger"; // Replace with the CMS name for the product
-       const imageUrl = "https://uploads-ssl.webflow.com/640b1549e240298094f4ece2/641878d601c9aed8812112d2_Hea.png"; // Replace with the CMS image URL for the product
-       const category = "Produkte"; // Replace with the CMS category for the product
+     addToCart(formData, productData);
+    } else {
+      console.log("Form is not valid.");
+      $('<input type="submit"/>').hide().appendTo($form).click().remove();
+    }
+  });
 
-       return {
-       productCode,
-       productName,
-       imageUrl,
-       category,
-     };
-   }
-        
-        function addToCart(formData, productData) {
-  const foxyData = {
-    code: productData.productCode,
-    name: productData.productName,
-    price: parseFloat(document.getElementById("price-vat").textContent),
-    options: JSON.stringify(Object.fromEntries(formData.entries())),
-    image: productData.imageUrl,
-    category: productData.category,
-    weight: parseFloat(document.getElementById("final-weight").value),
-  };
+  function getProductData() {
+    // Get product information from the CMS
+    const productCode = "hbhea"; // Replace with the CMS code for the product
+    const productName = "HEA Stahlträger"; // Replace with the CMS name for the product
+    const imageUrl = "https://uploads-ssl.webflow.com/640b1549e240298094f4ece2/641878d601c9aed8812112d2_Hea.png"; // Replace with the CMS image URL for the product
+    const category = "Produkte"; // Replace with the CMS category for the product
 
-    addToCart(formData, productData);
-  } else {
-    console.log("Form is not valid.");
-    $('<input type="submit"/>').hide().appendTo($form).click().remove();
+    return {
+      productCode,
+      productName,
+      imageUrl,
+      category,
+    };
   }
-});
+
+  function addToCart(formData, productData) {
+    const foxyData = {
+      code: productData.productCode,
+      name: productData.productName,
+      price: parseFloat(document.getElementById("price-vat").textContent),
+      options: JSON.stringify(Object.fromEntries(formData.entries())),
+      image: productData.imageUrl,
+      category: productData.category,
+      weight: parseFloat(document.getElementById("final-weight").value),
+    };
+   }
 
 
 
