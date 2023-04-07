@@ -408,7 +408,7 @@ function calculateTotalPrice(selectedValues, pricesData, beamMenge, kopfplattePr
   if (selectedValues.beamLength <= 0 || selectedValues.beamMenge <= 0) {
     return 0;
   }
-  const lengthPrice = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
+  const { lengthPrice } = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
     console.log("Length price:", lengthPrice);
   const optionsPrice = calculateOptionsPrice(selectedValues, pricesData);
     console.log("Options price:", optionsPrice);
@@ -423,7 +423,7 @@ function calculateFinalWeight(totalWeight, kopfplatteWeight, fusplatteWeight) {
   const finalWeight = totalWeight + kopfplatteWeight + fusplatteWeight;
   return finalWeight;
 }
-  const totalWeight = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
+  const { totalWeight } = calculateLengthPrice(selectedValues.heaSize, parseInt(selectedValues.beamLength), pricesData);
   const kopfplatteWeight = calculateKopfplatteWeight(selectedValues, steelDensity);
   const fusplatteWeight = calculatefusplatteWeight(selectedValues, steelDensity);
 
