@@ -186,7 +186,6 @@ function calculateLengthPrice(heaSize, beamLength, pricesData) {
   const lengthPrice = totalWeight * pricePerKg;
 
   return { lengthPrice, totalWeight };
-  console.log("Total weight:", totalWeight);
 }
 
 function calculateOptionsPrice(selectedValues, pricesData) {
@@ -280,7 +279,12 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   const sizePrice = weight * parseFloat(kopfplattePricesData["kg"]["default"]);
   
   const baseCuttingPriceKopfplatte = parseFloat(kopfplattePricesData["schneiden"]["default"]);
-  console.log("kopflatte schneiden Price:", baseCuttingPriceKopfplatte);
+  
+  function calculateKopfplatteWeight(lange, breite, dicke, steelDensity) {
+  const volume = lange * breite * dicke / 1000000000; // Convert to m3
+  const weight = volume * steelDensity; // Weight in kg
+  return weight;
+}
 
   // Calculate bohrungen price
   let bohrungenCategory = "";
@@ -305,6 +309,7 @@ function calculateKopfplattePrice(kopfplattePricesData) {
   return kopfplattePrice;
   
 }
+
   
   //Fusplatte
 
@@ -342,12 +347,6 @@ function calculateFusplattePrice(fusplattePricesData) {
 
   const steelDensity = 7850; // in kg/m3
   
-  console.log("Lange:", lange);
-  console.log("Breite:", breite);
-  console.log("Dicke:", dicke);
-  console.log("fusplatte prices data:", fusplattePricesData);
-  console.log("BohrungenDurchmesser:", bohrungenDurchmesser);
-  console.log("Bohrungen:", bohrungen);
 
   // Calculate size price
   const volume = lange * breite * dicke / 1000000000; // Convert to m3
@@ -357,6 +356,12 @@ function calculateFusplattePrice(fusplattePricesData) {
 
   const sizePrice = weight * parseFloat(fusplattePricesData["kg"]["default"]);
   console.log("Size price:", sizePrice);
+  
+  function calculatefusplatteWeight(lange, breite, dicke, steelDensity) {
+  const volume = lange * breite * dicke / 1000000000; // Convert to m3
+  const weight = volume * steelDensity; // Weight in kg
+  return weight;
+}
   
   const baseCuttingPriceFusplatte = parseFloat(fusplattePricesData["schneiden"]["default"]);
   console.log("fusplatte schneiden Price:", baseCuttingPriceFusplatte);
@@ -390,6 +395,17 @@ function calculateFusplattePrice(fusplattePricesData) {
   console.log("fusplattePricesData:", fusplattePricesData);
 
 }
+
+function calculateFinalWeight(totalWeight, kopfplatteWeight, fusplatteWeight) {
+  const finalWeight = totalWeight + kopfplatteWeight + fusplatteWeight;
+  return finalWeight;
+}
+const totalWeight = calculateLengthPrice(heaSize, beamLength, pricesData);
+const kopfplatteWeight = calculateKopfplatteWeight(lange, breite, dicke, steelDensity);
+const fusplatteWeight = calculatefusplatteWeight(lange, breite, dicke, steelDensity);
+
+const finalWeight = calculateFinalWeight(totalWeight, kopfplatteWeight, fusplatteWeight);
+console.log("Final weight:", finalWeight);
 
 
 function calculateTotalPrice(selectedValues, pricesData, beamMenge, kopfplattePrice, fusplattePrice) {
