@@ -154,7 +154,7 @@
       image: productData.imageUrl,
       category: productData.category,
       weight: parseFloat(document.getElementById("final-weight").value),
-      length: parseFloat(document.getElementById("beam-length").value);
+      length: parseFloat(document.getElementById("beam-length").value),
     };
     
     console.log("FoxyData:", foxyData);
