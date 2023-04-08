@@ -154,6 +154,7 @@
       image: productData.imageUrl,
       category: productData.category,
       weight: parseFloat(document.getElementById("final-weight").value),
+      length: parseFloat(document.getElementById("beam-length-hidden").value),
     };
     
     console.log("FoxyData:", foxyData);
@@ -207,6 +208,9 @@ function getSelectedValues() {
   const heaBohrungenDurchmesser = parseInt(document.getElementById("hea-bohrungen-durchmesser").value, 10);
   const heaWeiteres = document.getElementById("hea-weiteres").value;
   const beamMenge = parseInt(document.getElementById("beam-menge").value, 10);
+  
+  document.getElementById("beam-length-hidden").value = beamLength;
+
 
   return {
     heaSize,
