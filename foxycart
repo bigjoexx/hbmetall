@@ -292,6 +292,9 @@
                                 {% if with_controls and checkout_sub_cancel == false and (item.parent_code == '' or (item.parent_code != '' and item.quantity_min == 0)) %}
                                 <li class="fc-cart__item__actions">
                                     <ul class="fc-actions-container">
+                                        <li class="fc-cart__item__edit">
+                                            <a href="#" title="Edit" data-fc-id="item-edit-link" data-fc-item-id="{{ item.id }}">Edit</a>
+                                        </li>
                                         <li class="fc-cart__item__remove">
                                             <a href="#" title="{{ config.lang.cart_remove_item }}" data-fc-id="item-remove-link" data-fc-item-id="{{ item.id }}">{{ config.lang.cart_remove_item|raw }}</a>
                                         </li>
