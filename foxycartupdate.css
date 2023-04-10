@@ -5493,13 +5493,13 @@
   #fc .text-info {
     padding: 5px 12px 10px; }
   #fc .fc-messages__empty-notification {
-    background-color: #c1db9b;
+    background-color: #d48181;
     border-radius: 6px;
     margin: 1em 0;
     padding: 1em 2em;
     text-align: center; }
     #fc .fc-messages__empty-notification a {
-      color: #3e5300;
+      color: #9e0000;
       font-size: 1.2em; }
   #fc .fc-messages .fc-alert {
     margin: 20px 10px;
