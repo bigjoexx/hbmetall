@@ -150,13 +150,14 @@
       code: productData.productCode,
       name: productData.productName,
       price: parseFloat(document.getElementById("foxyprice").value),
-      options: JSON.stringify(Object.fromEntries(formData.entries())),
-      productUrl: window.location.href, // Add the current product URL as a separate attribute
-      length: parseFloat(document.getElementById("beam-length").value),
+      Options: JSON.stringify(Object.fromEntries(formData.entries())),
+      URL: window.location.href, // Add the current product URL as a separate attribute
+      Länge: parseFloat(document.getElementById("beam-length").value),
       image: productData.imageUrl,
       category: productData.category,
       weight: parseFloat(document.getElementById("final-weight").value),
     };
+    console.log("Options:", foxyData.options);
     
     console.log("FoxyData:", foxyData);
     
