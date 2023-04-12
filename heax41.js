@@ -150,10 +150,8 @@
       code: productData.productCode,
       name: productData.productName,
       price: parseFloat(document.getElementById("foxyprice").value),
-      options: JSON.stringify({
-      ...Object.fromEntries(formData.entries()),
-      productUrl: window.location.href, // Add the current product URL
-      }),
+      options: JSON.stringify(Object.fromEntries(formData.entries())),
+      productUrl: window.location.href, // Add the current product URL as a separate attribute
       image: productData.imageUrl,
       category: productData.category,
       weight: parseFloat(document.getElementById("final-weight").value),
