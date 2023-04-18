@@ -548,36 +548,6 @@ function updateWarningMessage(beamLength, beamMenge) {
 }
 
 
-function setDefaultValues() {
-  const queryParams = getQueryParameters();
-
-  const beamLengthInput = document.getElementById("beam-length");
-  if (beamLengthInput) {
-    if (!queryParams["beam-length"]) {
-      beamLengthInput.value = 1000;
-    }
-    beamLengthInput.addEventListener("input", () => {
-      if (beamLengthInput.value === "" || parseFloat(beamLengthInput.value) < 0) {
-        beamLengthInput.value = 0;
-      }
-      updateWarningMessage(parseFloat(beamLengthInput.value), parseFloat(beamMengeInput.value));
-    });
-  }
-  
-  const beamMengeInput = document.getElementById("beam-menge");
-  if (beamMengeInput) {
-    if (!queryParams["beam-menge"]) {
-      beamMengeInput.value = 1;
-    }
-    beamMengeInput.addEventListener("input", () => {
-      if (beamMengeInput.value === "" || parseFloat(beamMengeInput.value) < 0) {
-        beamMengeInput.value = 0;
-      }
-      updateWarningMessage(parseFloat(beamLengthInput.value), parseFloat(beamMengeInput.value));
-    });
-  }
-}
-
 function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) {
   const priceWithoutVAT = totalPrice;
   const priceWithVAT = totalPrice * (1 + VAT_RATE);
