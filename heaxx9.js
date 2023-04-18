@@ -654,7 +654,6 @@ async function main() {
 
   // Add event listeners for other form elements as needed
 
-  setDefaultValues();
   updatePrice(pricesData, kopfplattePricesData, fusplattePricesData); // Call once to initialize the price
 }
 
