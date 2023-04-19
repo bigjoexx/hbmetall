@@ -33,7 +33,7 @@
   });
 }
 
-  $(document).ready(function() {
+  $addtocartbutton.on('click', async function (event) {
     // Find the addtocartbutton and its parent form
     const $addtocartbutton = $('[data-cart-trigger]');
     const $form = $addtocartbutton.closest('.configurator-form');
