@@ -666,7 +666,7 @@ async function main() {
   productForm.querySelector("#stegbleche").addEventListener("change", () => updatePrice(pricesData));
   productForm.querySelector("#ausklinkungen").addEventListener("change", () => updatePrice(pricesData));
   productForm.querySelector("#buegel").addEventListener("change", () => updatePrice(pricesData));
-  productForm.querySelectord("#weiteres").addEventListener("change", () => updatePrice(pricesData));
+  productForm.querySelector("#weiteres").addEventListener("change", () => updatePrice(pricesData));
   productForm.querySelector("#bohrungen").addEventListener("change", () => updatePrice(pricesData));
   productForm.querySelector("#bohrungen-durchmesser").addEventListener("change", () => updatePrice(pricesData));
   productForm.querySelector("#traeger-menge").addEventListener("input", () => updatePrice(pricesData));
