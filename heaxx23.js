@@ -296,7 +296,7 @@ function calculateBeamTotalWeight(selectedValues, pricesData) {
   console.log('Selected Values:', selectedValues);
   console.log('Prices Data:', pricesData);
   console.log('HEA Size:', traegerFormat);
-  console.log('Beam Llaenge:', laengeh);
+  console.log('Beam Llaenge:', laenge);
   console.log('kg/m:', kgPerMeter);
   console.log('Beam Length in Meters:', laengeInMeters);
   console.log('Weight:', weight);
