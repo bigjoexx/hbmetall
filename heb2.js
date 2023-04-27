@@ -374,7 +374,7 @@ async function fetchKopfplattePrices() {
 
 function calculateKopfplattePrice(kopfplattePricesData) {
   // Check if the kopfplatte checkbox is checked
-  const kopfplatteCheckbox = productForm.querySelector("kopfplatte-checkbox");
+  const kopfplatteCheckbox = productForm.querySelector("#kopfplatte-checkbox");
   if (!kopfplatteCheckbox.checked) {
     return 0;
   }
@@ -423,7 +423,7 @@ function calculateKopfplattePrice(kopfplattePricesData) {
 }
 
 function calculateKopfplatteWeight(selectedValues, steelDensity) {
-    const kopfplatteCheckbox = productForm.querySelector("kopfplatte-checkbox");
+    const kopfplatteCheckbox = productForm.querySelector("#kopfplatte-checkbox");
   if (!kopfplatteCheckbox.checked) {
     return 0;
   }
@@ -465,7 +465,7 @@ function calculateKopfplatteWeight(selectedValues, steelDensity) {
 
 function calculateFusplattePrice(fusplattePricesData) {
   // Check if the fusplatte checkbox is checked
-  const fusplatteCheckbox = productForm.querySelector("fusplatte-checkbox");
+  const fusplatteCheckbox = productForm.querySelector("#fusplatte-checkbox");
   if (!fusplatteCheckbox.checked) {
     return 0;
   }
@@ -524,7 +524,7 @@ function calculateFusplattePrice(fusplattePricesData) {
 }
 
 function calculatefusplatteWeight(selectedValues, steelDensity) {
-    const fusplatteCheckbox = productForm.querySelector("fusplatte-checkbox");
+    const fusplatteCheckbox = productForm.querySelector("#fusplatte-checkbox");
   if (!fusplatteCheckbox.checked) {
     return 0;
   }
