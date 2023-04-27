@@ -589,8 +589,8 @@ function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) 
   const priceWithVAT = totalPrice * (1 + VAT_RATE);
   document.getElementById("foxyprice").value = priceWithVAT.toFixed(2);
 
-  const priceWithVATElem = document.getElementById("price-vat");
-  const priceWithoutVATElem = document.getElementById("price-novat");
+  const priceWithVATElem = document.getElementById("price-vat-2");
+  const priceWithoutVATElem = document.getElementById("price-novat-2");
 
   if (priceWithVATElem) {
     animateValue(priceWithVATElem, oldPriceWithVAT, priceWithVAT, 500);
@@ -641,8 +641,8 @@ async function updatePrice(pricesData) {
   
   const totalPrice = totalPriceHEA;
 
-  const priceWithoutVATElem = document.getElementById("price-novat");
-  const priceWithVATElem = document.getElementById("price-vat");
+  const priceWithoutVATElem = document.getElementById("price-novat-2");
+  const priceWithVATElem = document.getElementById("price-vat-2");
 
   const oldPriceWithoutVAT = parseFloat(priceWithoutVATElem.textContent.substr(1));
   const oldPriceWithVAT = parseFloat(priceWithVATElem.textContent.substr(1));
