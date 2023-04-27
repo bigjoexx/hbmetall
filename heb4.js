@@ -249,15 +249,15 @@ async function fetchPrices() {
 }
 
 function getSelectedValues() {
-  const traegerFormat = productForm.querySelector("traeger-format").value;
-  const laenge = parseFloat(productForm.querySelector("laenge").value);
-  const stegbleche = parseInt(productForm.querySelector("stegbleche").value, 10);
-  const ausklinkungen = parseInt(productForm.querySelector("ausklinkungen").value, 10);
-  const buegel = parseInt(productForm.querySelector("buegel").value, 10);
-  const bohrungen = parseInt(productForm.querySelector("bohrungen").value, 10);
-  const bohrungenDurchmesser = parseInt(productForm.querySelector("bohrungen-durchmesser").value, 10);
-  const weiteres = productForm.querySelector("weiteres").value;
-  const traegerMenge = parseInt(productForm.querySelector("traeger-menge").value, 10);
+  const traegerFormat = productForm.querySelector("#traeger-format").value;
+  const laenge = parseFloat(productForm.querySelector("#laenge").value);
+  const stegbleche = parseInt(productForm.querySelector("#stegbleche").value, 10);
+  const ausklinkungen = parseInt(productForm.querySelector("#ausklinkungen").value, 10);
+  const buegel = parseInt(productForm.querySelector("#buegel").value, 10);
+  const bohrungen = parseInt(productForm.querySelector("#bohrungen").value, 10);
+  const bohrungenDurchmesser = parseInt(productForm.querySelector("#bohrungen-durchmesser").value, 10);
+  const weiteres = productForm.querySelector("#weiteres").value;
+  const traegerMenge = parseInt(productForm.querySelector("#traeger-menge").value, 10);
 
 
   return {
@@ -323,7 +323,7 @@ function calculateOptionsPrice(selectedValues, pricesData) {
   const buegelPrice = parseFloat(pricesData[traegerFormat]["buegel"]) * buegel;
 
   // Extract the price for the selected "weiteres" option from the respective column in the table
-  const weiteresOption = productForm.querySelector("weiteres").value;
+  const weiteresOption = productForm.querySelector("#weiteres").value;
   const weiteresPrice = parseFloat(pricesData[traegerFormat][weiteresOption]);
 
     let diameterCategory = "";
@@ -379,14 +379,14 @@ function calculateKopfplattePrice(kopfplattePricesData) {
     return 0;
   }
 
-  const lange = parseInt(productForm.querySelector("kopfplatte-lange").value, 10) || 0;
-  const breite = parseInt(productForm.querySelector("kopfplatte-breite").value, 10) || 0;
-  const dicke = parseInt(productForm.querySelector("kopfplatte-dicke").value, 10) || 0;
-  const anschweisen = productForm.querySelector("kopfplatte-anschweisen").value;
-  const bohrungen = parseInt(productForm.querySelector("kopfplatte-bohrungen").value, 10);
-  const bohrungenDurchmesser = parseInt(productForm.querySelector("kopfplatte-bohrungen-durchmesser").value, 10);
-  const kehlnahtstarke = productForm.querySelector("kopfplatte-kehlnahtstarke").value;
-  const dorne = parseInt(productForm.querySelector("kopfplatte-dorne").value, 10);
+  const lange = parseInt(productForm.querySelector("#kopfplatte-lange").value, 10) || 0;
+  const breite = parseInt(productForm.querySelector("#kopfplatte-breite").value, 10) || 0;
+  const dicke = parseInt(productForm.querySelector("#kopfplatte-dicke").value, 10) || 0;
+  const anschweisen = productForm.querySelector("#kopfplatte-anschweisen").value;
+  const bohrungen = parseInt(productForm.querySelector("#kopfplatte-bohrungen").value, 10);
+  const bohrungenDurchmesser = parseInt(productForm.querySelector("#kopfplatte-bohrungen-durchmesser").value, 10);
+  const kehlnahtstarke = productForm.querySelector("#kopfplatte-kehlnahtstarke").value;
+  const dorne = parseInt(productForm.querySelector("#kopfplatte-dorne").value, 10);
 
   const steelDensity = 7850; // in kg/m3
 
@@ -427,9 +427,9 @@ function calculateKopfplatteWeight(selectedValues, steelDensity) {
   if (!kopfplatteCheckbox.checked) {
     return 0;
   }
-  const lange = parseInt(productForm.querySelector("kopfplatte-lange").value, 10) || 0;
-  const breite = parseInt(productForm.querySelector("kopfplatte-breite").value, 10) || 0;
-  const dicke = parseInt(productForm.querySelector("kopfplatte-dicke").value, 10) || 0;
+  const lange = parseInt(productForm.querySelector("#kopfplatte-lange").value, 10) || 0;
+  const breite = parseInt(productForm.querySelector("#kopfplatte-breite").value, 10) || 0;
+  const dicke = parseInt(productForm.querySelector("#kopfplatte-dicke").value, 10) || 0;
   const volume = lange * breite * dicke / 1000000000; // Convert to m3
   const weight = volume * steelDensity; // Weight in kg
   
@@ -470,13 +470,13 @@ function calculateFusplattePrice(fusplattePricesData) {
     return 0;
   }
   
-  const lange = parseInt(productForm.querySelector("fusplatte-lange").value, 10) || 0;
-  const breite = parseInt(productForm.querySelector("fusplatte-breite").value, 10) || 0;
-  const dicke = parseInt(productForm.querySelector("fusplatte-dicke").value, 10) || 0;
-  const anschweisen = productForm.querySelector("fusplatte-anschweisen").value;
-  const bohrungen = parseInt(productForm.querySelector("fusplatte-bohrungen").value, 10);
-  const bohrungenDurchmesser = parseInt(productForm.querySelector("fusplatte-bohrungen-durchmesser").value, 10);
-  const kehlnahtstarke = productForm.querySelector("fusplatte-kehlnahtstarke").value;
+  const lange = parseInt(productForm.querySelector("#fusplatte-lange").value, 10) || 0;
+  const breite = parseInt(productForm.querySelector("#fusplatte-breite").value, 10) || 0;
+  const dicke = parseInt(productForm.querySelector("#fusplatte-dicke").value, 10) || 0;
+  const anschweisen = productForm.querySelector("#fusplatte-anschweisen").value;
+  const bohrungen = parseInt(productForm.querySelector("#fusplatte-bohrungen").value, 10);
+  const bohrungenDurchmesser = parseInt(productForm.querySelector("#fusplatte-bohrungen-durchmesser").value, 10);
+  const kehlnahtstarke = productForm.querySelector("#fusplatte-kehlnahtstarke").value;
 
   const steelDensity = 7850; // in kg/m3
   
@@ -528,9 +528,9 @@ function calculatefusplatteWeight(selectedValues, steelDensity) {
   if (!fusplatteCheckbox.checked) {
     return 0;
   }
-  const lange = parseInt(productForm.querySelector("fusplatte-lange").value, 10) || 0;
-  const breite = parseInt(productForm.querySelector("fusplatte-breite").value, 10) || 0;
-  const dicke = parseInt(productForm.querySelector("fusplatte-dicke").value, 10) || 0;
+  const lange = parseInt(productForm.querySelector("#fusplatte-lange").value, 10) || 0;
+  const breite = parseInt(productForm.querySelector("#fusplatte-breite").value, 10) || 0;
+  const dicke = parseInt(productForm.querySelector("#fusplatte-dicke").value, 10) || 0;
   const volume = lange * breite * dicke / 1000000000; // Convert to m3
   const weight = volume * steelDensity; // Weight in kg
   
@@ -571,12 +571,12 @@ function calculateFinalWeight(selectedValues, pricesData, traegerMenge, steelDen
   const finalWeight = (beamTotalWeight + kopfplatteWeight + fusplatteWeight) * traegerMenge;
   console.log("Final weight:", finalWeight);
   
-  productForm.querySelector("final-weight").value = finalWeight;
+  productForm.querySelector("#final-weight").value = finalWeight;
 }
 
 
 function updateWarningMessage(laenge, traegerMenge) {
-  const warningMessage = productForm.querySelector("warning-message");
+  const warningMessage = productForm.querySelector("#warning-message");
 
   if (laenge <= 0 || traegerMenge <= 0) {
     warningMessage.style.display = "block";
@@ -589,10 +589,10 @@ function updateWarningMessage(laenge, traegerMenge) {
 function updateDisplayedPrices(oldPriceWithoutVAT, oldPriceWithVAT, totalPrice) {
   const priceWithoutVAT = totalPrice;
   const priceWithVAT = totalPrice * (1 + VAT_RATE);
-  productForm.querySelectord("foxyprice").value = priceWithVAT.toFixed(2);
+  productForm.querySelectord("#foxyprice").value = priceWithVAT.toFixed(2);
 
-  const priceWithVATElem = productForm.querySelector("price-vat-2");
-  const priceWithoutVATElem = productForm.querySelector("price-novat-2");
+  const priceWithVATElem = productForm.querySelector("#price-vat-2");
+  const priceWithoutVATElem = productForm.querySelector("#price-novat-2");
 
   if (priceWithVATElem) {
     animateValue(priceWithVATElem, oldPriceWithVAT, priceWithVAT, 500);
@@ -643,8 +643,8 @@ async function updatePrice(pricesData) {
   
   const totalPrice = totalPriceHEA;
 
-  const priceWithoutVATElem = productForm.querySelector("price-novat-2");
-  const priceWithVATElem = productForm.querySelector("price-vat-2");
+  const priceWithoutVATElem = productForm.querySelector("#price-novat-2");
+  const priceWithVATElem = productForm.querySelector("#price-vat-2");
 
   const oldPriceWithoutVAT = parseFloat(priceWithoutVATElem.textContent.substr(1));
   const oldPriceWithVAT = parseFloat(priceWithVATElem.textContent.substr(1));
