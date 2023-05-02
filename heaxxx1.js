@@ -345,6 +345,7 @@ console.log("Bohrungen price:", bohrungenPrice);
 }
 
 function calculateFeuerverzinkungPrice(selectedValues, pricesData, finalWeight) {
+  console.log('Function called');
   const feuerverzinkungCheckbox = document.getElementById("feuerverzinkung-checkbox");
   if (!feuerverzinkungCheckbox.checked) {
     return 0;
