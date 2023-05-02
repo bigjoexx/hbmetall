@@ -676,7 +676,7 @@ function initializePage(pricesData) {
 }
 
 (async () => {
-  const pricesData = await fetchPricesData();
+  const pricesData = await fetchPrices();
   initializePage(pricesData);
 })();
 
