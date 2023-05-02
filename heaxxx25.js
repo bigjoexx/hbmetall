@@ -624,7 +624,7 @@ function calculateFinalSurface(selectedValues, traegerMenge, pricesData) {
   }
   console.log("Selected values in calculateFinalSurface:", selectedValues);
   console.log("Prices data in calculateFinalSurface:", pricesData);
-  const beamSurface = calculateBeamSurface(selectedValues);
+  const beamSurface = calculateBeamSurface(selectedValues, pricesData);
   const kopfplatteSurface = calculateKopfplatteSurface(selectedValues);
   const fusplatteSurface = calculateFusplatteSurface(selectedValues);
 
