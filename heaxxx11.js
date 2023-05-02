@@ -297,6 +297,8 @@ function calculateBeamTotalWeight(selectedValues, pricesData) {
 function calculateBeamSurface(selectedValues, pricesData) {
   const traegerFormat = selectedValues.traegerFormat;
   const laenge = selectedValues.laenge;
+  console.log("pricesData:", pricesData); // Add this line
+  console.log("traegerFormat:", traegerFormat); // Add this line
   const surfacePerMeter = parseFloat(pricesData[traegerFormat]["Suprafata per metru"]);
   const laengeInMeters = laenge / 1000;
   const surface = surfacePerMeter * laengeInMeters;
