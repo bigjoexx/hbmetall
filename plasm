@@ -1,0 +1,186 @@
+<section id="konfigurator">
+	<div class="container">
+		<div class="col-xs-12 col-sm-12 col-md-8">
+			<div class="panel-header">
+				<h2 class="no-border">Blechkonfigurator</h2>
+				<p>Wir liefern bequem zu Ihnen nach Hause oder in Ihre <br class="next_line">Werkstatt in nur 5 Tagen. Günstig, einfach und schnell.</p>
+			</div>
+			<div class="panel-body">
+				<form method="POST" action="" accept-charset="UTF-8" class="form-horizontal smart-wizard" id="form-konfigurator" role="form" enctype="multipart/form-data">
+					<div id="wizard" class="swMain">
+						<!-- start: WIZARD SEPS -->
+						<ul class="anchor">
+							<li class="active done">
+								<a href="#step-1" class="done" isdone="1" rel="1">
+											1. Material										<span>Edelstahl (V2A)</span></a>
+							</li>
+							<li class="active done">
+								<a href="#step-2" class="done" isdone="1" rel="2">
+											2. Struktur<span>Geschliffen</span></a>
+								<button class="go-step visible-xs visible-sm" role="1" href="javascript:void()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+							</li>
+							<li class="active done">
+								<a href="#step-3" class="done" isdone="1" rel="3">
+											3. Stärke<span>2mm<span></span></span></a>
+								<button class="go-step visible-xs visible-sm" role="2" href="javascript:void()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+							</li>
+							<li class="selected">
+								<a href="#step-4" class="selected" isdone="1" rel="4">
+											4. Form<span>Rechteck mit Kreisausschnitt<span></span></span></a>
+								<button class="go-step visible-xs visible-sm" role="3" href="javascript:void()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+							</li>
+							<li>
+								<a href="#step-5" class="disabled" isdone="0" rel="5">
+											5. Preis</a>
+								<button class="go-step visible-xs visible-sm" role="4" href="javascript:void()"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+							</li>
+						</ul>
+						
+						
+						
+						
+						
+						
+					<div class="stepContainer" style="height: 534px;"><div id="step-1" class="content" style="display: none;">
+							<div class="loadDetail"><h5>Edelstahl (V2A)</h5><div class="mat-img"><img class="md-margin-top" src="https://www.blechmal.de/wp-content/uploads/2016/11/edelstahl-1.jpg"><a class="material-info" data-toggle="modal" data-target="#infomaterial" data-material-name="edelstahl" href="javascript:void(0)">?</a></div></div>
+							<div class="shadow shadow-primary"></div>
+							<div class="materialAsset owl-responsive md-margin-top owl-carousel owl-theme" id="materialAsset" style="opacity: 0; display: block;"><div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 68px; left: 0px; display: block; margin: 0px auto; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);"><div class="owl-item" style="width: 17px;"><div class="material"><input name="material" type="radio" role="589" id="material-589" value="Aluminium"><label for="material-589"><img src="https://www.blechmal.de/wp-content/uploads/2016/11/Alumunium-2-150x150.jpg"></label><span>Aluminium</span></div></div><div class="owl-item" style="width: 17px;"><div class="material"><input name="material" type="radio" role="600" id="material-600" value="Edelstahl (V2A)"><label for="material-600"><img src="https://www.blechmal.de/wp-content/uploads/2016/11/edelstahl-1-150x150.jpg"></label><span>Edelstahl (V2A)</span></div></div><div class="owl-item" style="width: 17px;"><div class="material"><input name="material" type="radio" role="601" id="material-601" value="Stahl, Blank"><label for="material-601"><img src="https://www.blechmal.de/wp-content/uploads/2016/11/stahl-blank-1-150x150.jpg"></label><span>Stahl, Blank</span></div></div><div class="owl-item" style="width: 17px;"><div class="material"><input name="material" type="radio" role="602" id="material-602" value="Stahl, Verzinkt"><label for="material-602"><img src="https://www.blechmal.de/wp-content/uploads/2016/12/stahl-verzinkt-150x150.jpg"></label><span>Stahl, Verzinkt</span></div></div></div></div><div class="owl-controls clickable" style="display: none;"><div class="owl-pagination"><div class="owl-page"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></div><div class="owl-next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></div></div></div></div>
+							<div class="clearfix"></div>
+						</div><div id="step-2" class="content" style="display: none;">
+							<div class="loadDetail"><h5>Geschliffen</h5><div class="mat-img"><img class="md-margin-top" src="https://www.blechmal.de/wp-content/uploads/2016/11/edelstahl-1.jpg"><a class="material-info" data-toggle="modal" data-target="#infostruktur" data-material-name="geschliffen" href="javascript:void(0)">?</a></div></div>
+							<div class="shadow shadow-primary"></div>
+							<div class="structAsset owl-responsive md-margin-top owl-carousel owl-theme" id="structAsset" style="opacity: 0; display: block;"><div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 51px; left: 0px; display: block; margin: 0px auto; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);"><div class="owl-item" style="width: 17px;"><div class="material"><input name="structure" type="radio" role="607" id="struchture-607" value="Lochblech"><label for="struchture-607"><img src="https://www.blechmal.de/wp-content/uploads/2016/11/lochblech-2-150x150.jpg"></label><span>Lochblech</span></div></div><div class="owl-item" style="width: 17px;"><div class="material"><input name="structure" type="radio" role="608" id="struchture-608" value="Glatt"><label for="struchture-608"><img src="https://www.blechmal.de/wp-content/uploads/2016/11/structure-blank-150x150.jpg"></label><span>Glatt</span></div></div><div class="owl-item" style="width: 17px;"><div class="material"><input name="structure" type="radio" role="2007" id="struchture-2007" value="Geschliffen"><label for="struchture-2007"><img src="https://www.blechmal.de/wp-content/uploads/2016/11/edelstahl-1-150x150.jpg"></label><span>Geschliffen</span></div></div></div></div><div class="owl-controls clickable" style="display: none;"><div class="owl-pagination"><div class="owl-page"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></div><div class="owl-next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></div></div></div></div>
+						</div><div id="step-3" class="content" style="display: none;">
+							<div class="loadDetail">
+								<h5>Edelstahl Geschliffen 2mm</h5>
+								<img src="https://www.blechmal.de/wp-content/uploads/2016/11/edelstahl-1.jpg" alt="" class="md-margin-top">
+								<div class="starke">
+									<div id="line-starke" style="height: 4px; top: 49%;"></div>
+								</div>
+							</div>
+							<div class="shadow shadow-primary"></div>
+							<div class="line-detail md-margin-top">
+								<input type="hidden" name="weight_per_mm">
+								<input type="hidden" name="price_per_kg">
+								<h2 id="line-description" class="text-center"><b>2mm</b></h2>
+								<div class="owl-responsive owl-carousel owl-theme" id="starke-combo" style="opacity: 0; display: block;"><div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 34px; left: 0px; display: block; margin: 0px auto; transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);"><div class="owl-item" style="width: 17px;"><div class="material thickness-radio"><input type="radio" name="thickness" value="1" role="0" id="thickness-1357" class="required"><label for="thickness-1357">1 mm</label></div></div><div class="owl-item" style="width: 17px;"><div class="material thickness-radio"><input type="radio" name="thickness" value="2" role="1" id="thickness-1219" class="required"><label for="thickness-1219">2 mm</label></div></div></div></div><div class="owl-controls clickable" style="display: none;"><div class="owl-pagination"><div class="owl-page"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></div><div class="owl-next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></div></div></div></div>
+								<div class="clearfix"></div>
+							</div>
+						</div><div id="step-4" class="content" style="display: block;">
+							<div class="col-md-8 md-margin-top">
+								<div class="shapeDetail">
+									<div class="svgImage" style="display: block;"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Rechteck-Mit-Kreiss-1.svg"></object></div>
+									<div class="shadow shadow-small"></div>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							<div class="col-md-4 md-margin-top">
+								<div class="form-shape" style="display: block;"><div class="form-group"><input type="text" name="additional[seiteA]" min="50" max="3000" placeholder="Seite (a)" id="seiteA0" data-val="" class=" form-control required"><span class="form-control-feedback">mm</span><span>zwischen 50mm und 3000 mm</span></div><div class="form-group"><input type="text" name="additional[seiteB]" min="50" max="1500" placeholder="Seite (b)" id="seiteB1" data-val="" class=" form-control required"><span class="form-control-feedback">mm</span><span>Länge muß zwischen 50 und 1500 mm liegen</span></div><div class="form-group"><input type="text" name="additional[radius]" min="5" max="1495" placeholder="Radius (r)" id="radius2" data-val="" class=" form-control required"><span class="form-control-feedback">mm</span><span>zwischen 5mm und 1495 mm</span></div></div>
+								<div class="row blank-input-error"></div>
+							</div>
+							<div class="clearfix"></div>
+							<div class="shapeAsset owl-responsive md-margin-top owl-carousel owl-theme" style="opacity: 1; display: block;"><div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 1380px; left: 0px; display: block; margin: 0px auto; transform: translate3d(-115px, 0px, 0px);"><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="623" id="svg-623" value="Rechteck" checked="checked"><label for="svg-623"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Rectangle.svg" class=""></object></label><span>Rechteck</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="663" id="svg-663" value="Rechteck mit Kreisausschnitt"><label for="svg-663"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Rechteck-mit-Kreisausschnitt.svg" class="selected"></object></label><span>Rechteck mit Kreisausschnitt</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="664" id="svg-664" value="Kreis"><label for="svg-664"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Kreis.svg" class=""></object></label><span>Kreis</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="665" id="svg-665" value="Teilkreis"><label for="svg-665"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Teilkreis.svg" class=""></object></label><span>Teilkreis</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="731" id="svg-731" value="Ring"><label for="svg-731"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Ring.svg" class=""></object></label><span>Ring</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="732" id="svg-732" value="Dreieck"><label for="svg-732"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Triangle.svg" class=""></object></label><span>Dreieck</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="733" id="svg-733" value="Rahmen"><label for="svg-733"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Rahmen.svg"></object></label><span>Rahmen</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="734" id="svg-734" value="Rechtwinkliges Dreieck"><label for="svg-734"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Rechtwinkliges-Dreieck.svg"></object></label><span>Rechtwinkliges Dreieck</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="735" id="svg-735" value="L-Profil Kantung"><label for="svg-735"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/L-Profil-Kantung.svg"></object></label><span>L-Profil Kantung</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="737" id="svg-737" value="U-Profil Kantung"><label for="svg-737"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/U-Profil-Kantung.svg"></object></label><span>U-Profil Kantung</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="738" id="svg-738" value="Z-Profil Kantung"><label for="svg-738"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Z-Profil-Kantung.svg"></object></label><span>Z-Profil Kantung</span></div></div><div class="owl-item" style="width: 115px;"><div class="shape"><input name="shapeName" type="radio" role="740" id="svg-740" value="Wannen Profil"><label for="svg-740"><object type="image/svg+xml" data="https://www.blechmal.de/wp-content/uploads/2016/11/Wannen-Profil.svg"></object></label><span>Wannen Profil</span></div></div></div></div><div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div><div class="owl-buttons"><div class="owl-prev"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></div><div class="owl-next"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></div></div></div></div>
+						</div><div id="step-5" class="content" style="display: none;">
+							<div class="row step-resume md-margin-top">
+								<div class="col-md-7 loadDetail md-margin-top">
+									<svg width="100%" height="auto" version="1.2" style="max-height: 168px;"> 
+									    <defs>
+									        <mask id="maskImage">
+									            <image width="100%" height="100%" xlink:href="https://www.blechmal.de/wp-content/uploads/2016/11/Rechteck-Mit-Kreiss.svg"></image>
+									        </mask>
+									    </defs>
+									    <image id="ori" mask="url(#maskImage)" width="100%" height="100%" xlink:href="https://www.blechmal.de/wp-content/uploads/2016/11/edelstahl-1.jpg"></image>
+									</svg>
+									<div class="shadow shadow-primary"></div>
+									<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+										<p class="muted">Abbildung ähnlich</p>
+									</div>
+								</div>
+								<div class="col-md-5">
+									<div class="row product-items">
+										<ul>
+											<li id="material">
+												<div class="text-left col-md-8 item pull-left">
+													<span>Material</span>
+													<h3>Material</h3>
+												</div>
+												<div class="col-md-4"> <a class="go-step pull-right" role="1" href="#step-1">Ändern</a></div>
+											</li>
+											<li id="structure">
+												<div class="text-left col-md-8 item pull-left">
+													<span>Structure</span>
+													<h3>Struktur</h3>
+												</div>
+												<div class="col-md-4"> <a class="go-step pull-right" role="2" href="#step-2">Ändern</a></div>
+											</li>
+											<li id="starke">
+												<div class="text-left col-md-8 item pull-left">
+													<span>Stärke</span>
+													<h3>0mm</h3>
+												</div>
+												<div class="col-md-4"> <a class="go-step pull-right" role="3" href="#step-3">Ändern</a></div>
+											</li>
+											<li id="form">
+												<div class="text-left col-md-8 item pull-left">
+													<span>Form</span>
+													<h3 class="name">Rechteck</h3>
+												</div>
+												<div class="col-md-4"> <a class="go-step pull-right" role="4" href="#step-4">Ändern</a></div>
+												<div class="clearfix"></div>
+												<div class="item col-md-12 summaryForm sm-margin-top"></div>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="clearfix"></div>
+								<div class="col-md-8 col-md-offset-2 centered md-margin-top no-padding">
+									<div>Preis: <span id="total-price"></span></div>
+									<div class="md-margin-top md-margin-bottom">
+										<div class="col-md-3 col-md-offset-1">
+											<input type="number" step="1" min="1" name="quantity" value="1" class="form-control" size="4" pattern="[0-9]*" inputmode="numeric">
+											<span id="quantity-error" class="help-block valid"></span>
+										</div>
+										<div class="col-md-7">
+											<input type="hidden" name="konfigurator_itemid" value="1219">
+											<input type="hidden" name="konfigurator_shape" value="663">
+											<input type="hidden" name="addcustomcarts">
+											<input type="button" class="btn blue-o-btn btn-submit finish-step" value=" In den Warenkorb">
+										</div>
+										<div class="clearfix"></div>
+										<span class="muted">Um den <b>Mengenrabatt</b> einzusehen, kannst Du hier die Stückanzahl ändern</span>
+									</div>
+								</div>
+							</div>
+						</div><div class="form-action content">
+							<button class="blue-o-btn next-step btn" style="opacity: 1;">
+								Nächster Schritt <i class="fa fa-angle-right" aria-hidden="true"></i>
+							</button>
+						</div></div><div class="actionBar"><div class="msgBox"><div class="content"></div><a href="#" class="close">X</a></div><div class="loader">Loading</div><a href="#" class="buttonFinish buttonDisabled">Finish</a><a href="#" class="buttonNext">Next</a><a href="#" class="buttonPrevious">Previous</a></div></div>
+				</form>
+			</div>
+			<div class="panel-footer">
+				<p></p><p>Nicht das passende Blech dabei?<br>
+<a href="javascript:void()" data-toggle="modal" data-target="#pop-up-contact">Dann sende</a> uns eine individuelle Anfrage.</p>
+			<p></p>
+			</div>
+		</div>
+		<div id="three-items" class="col-xs-12 col-sm-12 col-md-4" style="">
+			<h3 class="text-center" style="margin-top: 0px;margin-bottom: 25px;font-family: 'Titillium Web','Helvetica Neue','Arial',sans-serif;">Warum bei BlechMal bestellen?</h3>
+			<div class="steps-inner">
+				<div class="icon-steps"> <img src="/wp-content/uploads/2020/05/unnamed-1.png" style="max-width:81px;"></div>
+				<h3 class="title">Lasergenaue Zuschnitte</h3>
+				<p>Ihre Blechzuschnitte werden mit der besten Technologie, wie z.B. unserem brandneuen Fiber Laser, gefertigt.</p>
+			</div>
+			<div class="steps-inner">
+				<div class="icon-steps"> <img src="/wp-content/uploads/2020/05/1392486-200.png" style="max-width:81px;"></div>
+				<h3 class="title">Premium Qualität</h3>
+				<p>Wir nutzen hochwertiges und ausschließlich EU Material, welches optimale Beständigkeit garantiert</p>
+			</div>
+			<div class="steps-inner no-arrow">
+				<div class="icon-steps"> <img src="https://www.blechmal.de/wp-content/uploads/2016/10/step-3.png"></div>
+				<h3 class="title">Schneller und versicherter Versand</h3>
+				<p>Ihr Zuschnitt ist innerhalb von 3-7 Tagen professionell und sicher verpackt bei Ihnen</p>
+			</div>
+		</div>
+	</div>
+</section>
