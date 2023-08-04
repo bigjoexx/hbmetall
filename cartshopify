@@ -1,0 +1,192 @@
+<div id="drawer-cart" data-drawer="cart" class="jv_drawer-bubble is-active"><div class="drawer-inners-bubble"><div id="cart-spinner" class="cart_spinner"><div class="cart-spinner w-embed"><svg viewBox="0 0 50 50" class="cart-spinner">
+  <circle class="ring" cx="25" cy="25" r="22.5"></circle>
+  <circle class="line" cx="25" cy="25" r="22.5"></circle>
+</svg>
+<style>
+.cart-spinner {
+  --spinner-size: 2;
+  --line-color: #2a2552;
+  --line-alpha: 1;
+  --ring-color: #2a2552;
+  --ring-alpha: 0.05;
+  --ring-size: 6;
+
+  font-size: calc(var(--spinner-size) * 1em);
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+}
+.cart-spinner .line {
+  fill: none;
+  stroke: var(--line-color);
+  stroke-width: var(--ring-size);
+  opacity: var(--line-alpha);
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  transform: rotate3d(0, 0, 1, 0deg);
+  animation: 
+    2156ms spinner-arc ease-in-out infinite,
+    1829ms spinner-rotate linear infinite;
+}
+.cart-spinner .ring {
+  fill: none;
+  stroke: var(--ring-color);
+  stroke-width: var(--ring-size);
+  opacity: var(--ring-alpha);
+}
+@keyframes spinner-rotate {
+  to { transform: rotate3d(0, 0, 1, 360deg); }
+}
+@keyframes spinner-arc {
+  from { stroke-dasharray: 0 150; stroke-dashoffset: 0; }
+  to { stroke-dasharray: 100 150; stroke-dashoffset: -140; }
+}
+--spinner-size: 2em
+--ring-size: 6
+--line-color: #2a2552
+--line-alpha: 1
+--ring-color: #2a2552
+--ring-alpha: 0.05
+</style></div></div><div data-cart-bg="1" class="cart_heading border-bottom no-bg"><div class="cart_nav padding-2"><div class="new_cart"><div class="cart_title-text">Your Cart</div></div><a ll-scroll-disable="toggle" data-drawer="close" href="#" class="cart_down-button w-inline-block"><div class="cart2_back-icon w-embed"><svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 m-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg></div></a></div></div><div class="div-block-744"><div class="divider"><div class="divider-line"></div><div data-i18n="trusted_reviews" class="style-guide-card">UNLOCK FREE GIFTS BUYING MORE</div><div class="divider-line"></div></div><div class="cart_gifts"><div class="gift_wrapper"><div id="gift1_wrapper" gift-name="gift01" class="gift_block w-node-_516a511a-e85b-df15-1b02-95253eb273a7-e82f8fe2 is-active"><div gift-name="gift01" id="w-node-_516a511a-e85b-df15-1b02-95253eb273a8-e82f8fe2" class="gift_inner is-active"><img src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8f6d_free-shipping.webp" loading="lazy" gift-name="gift01" id="gift1image" alt="" class="gift_image is-active"><div gift-name="gift01" class="gift-overlay is-active"></div><div class="gift_lockers"><div class="gift-cart-iucons w-embed"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 64 64" id="gift"><path fill="#333" d="M54 64H10a1 1 0 01-1-1V41a1 1 0 012 0V62H53V41a1 1 0 012 0V63A1 1 0 0154 64zM54 34H10a1 1 0 010-2H54a1 1 0 010 2z"></path><path fill="#333" d="M32,64a1,1,0,0,1-1-1V33a1,1,0,0,1,2,0V63A1,1,0,0,1,32,64Z"></path><path fill="#333" d="M23,42H3a1,1,0,0,1-.752-1.658l7-8A1,1,0,0,1,10,32H32a1,1,0,0,1,.665,1.747l-9,8A1,1,0,0,1,23,42ZM5.2,40H22.62l6.75-6H10.454Z"></path><path fill="#333" d="M61 42H41a1 1 0 01-.665-.253l-9-8A1 1 0 0132 32H54a.993.993 0 01.752.342l7 8A1 1 0 0161 42zM41.38 40H58.8l-5.25-6H34.63zM19 31a1 1 0 01-.9-.553C12.447 19.131 2.1 19 2 19a1 1 0 010-2c.475 0 11.689.143 17.9 12.553A1 1 0 0119 31zM45 31a1 1 0 01-.894-1.447C50.311 17.143 61.525 17 62 17a1 1 0 010 2h0c-.425 0-10.473.178-16.107 11.447A1 1 0 0145 31zM23 25a1 1 0 01-.979-.8c-1.864-9.319-8.15-12.162-8.417-12.278a1 1 0 01.791-1.837c.306.131 7.507 3.326 9.586 13.723A1 1 0 0123.2 24.98.948.948 0 0123 25zM40 25a.948.948 0 01-.2-.02A1 1 0 0139.02 23.8c2.079-10.4 9.28-13.592 9.586-13.723a1 1 0 01.79 1.837c-.283.124-6.554 2.973-8.416 12.278A1 1 0 0140 25zM26.971 18a1.893 1.893 0 01-1.15-.389 1.77 1.77 0 01-.685-1.738l.782-4.238L22.591 8.62a1.758 1.758 0 01-.511-1.838 1.831 1.831 0 011.528-1.27l4.661-.63 2.07-3.9a1.9 1.9 0 013.322 0h0l2.07 3.9 4.66.63a1.832 1.832 0 011.529 1.27 1.756 1.756 0 01-.511 1.837l-3.327 3.017.782 4.238a1.77 1.77 0 01-.685 1.738 1.9 1.9 0 01-2 .192l-4.219-2.063L27.816 17.8A1.917 1.917 0 0126.971 18zm-2.7-10.56l3.078 2.79a1.765 1.765 0 01.562 1.637l-.754 4.088 4-2.012a1.933 1.933 0 011.683 0L36.834 15.9l-.743-4.028a1.767 1.767 0 01.561-1.637l3.079-2.79-4.325-.585A1.867 1.867 0 0134 5.894L32 2.118 30 5.894a1.867 1.867 0 01-1.4.962zm11.5-2.485h0zM31.894 1.918h0z"></path><circle cx="12" cy="16" r="1" fill="#333"></circle><circle cx="57" cy="13" r="1" fill="#333"></circle><circle cx="35" cy="26" r="1" fill="#333"></circle><circle cx="51" cy="28" r="1" fill="#333"></circle><circle cx="28" cy="21" r="1" fill="#333"></circle><circle cx="14" cy="29" r="1" fill="#333"></circle><circle cx="18" cy="6" r="1" fill="#333"></circle><circle cx="45" cy="4" r="1" fill="#333"></circle></svg></div></div></div></div><div id="gift1_wrapper" class="gift_block"><div gift-name="gift02" id="w-node-_516a511a-e85b-df15-1b02-95253eb273ae-e82f8fe2" class="gift_inner"><img src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8d31_book-gifts.webp" loading="lazy" gift-name="gift02" id="gift2image" alt="" class="gift_image"><div gift-name="gift02" class="gift-overlay"></div><div class="gift_lockers"><div class="gift-cart-iucons w-embed"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 64 64" id="gift"><path fill="#333" d="M54 64H10a1 1 0 01-1-1V41a1 1 0 012 0V62H53V41a1 1 0 012 0V63A1 1 0 0154 64zM54 34H10a1 1 0 010-2H54a1 1 0 010 2z"></path><path fill="#333" d="M32,64a1,1,0,0,1-1-1V33a1,1,0,0,1,2,0V63A1,1,0,0,1,32,64Z"></path><path fill="#333" d="M23,42H3a1,1,0,0,1-.752-1.658l7-8A1,1,0,0,1,10,32H32a1,1,0,0,1,.665,1.747l-9,8A1,1,0,0,1,23,42ZM5.2,40H22.62l6.75-6H10.454Z"></path><path fill="#333" d="M61 42H41a1 1 0 01-.665-.253l-9-8A1 1 0 0132 32H54a.993.993 0 01.752.342l7 8A1 1 0 0161 42zM41.38 40H58.8l-5.25-6H34.63zM19 31a1 1 0 01-.9-.553C12.447 19.131 2.1 19 2 19a1 1 0 010-2c.475 0 11.689.143 17.9 12.553A1 1 0 0119 31zM45 31a1 1 0 01-.894-1.447C50.311 17.143 61.525 17 62 17a1 1 0 010 2h0c-.425 0-10.473.178-16.107 11.447A1 1 0 0145 31zM23 25a1 1 0 01-.979-.8c-1.864-9.319-8.15-12.162-8.417-12.278a1 1 0 01.791-1.837c.306.131 7.507 3.326 9.586 13.723A1 1 0 0123.2 24.98.948.948 0 0123 25zM40 25a.948.948 0 01-.2-.02A1 1 0 0139.02 23.8c2.079-10.4 9.28-13.592 9.586-13.723a1 1 0 01.79 1.837c-.283.124-6.554 2.973-8.416 12.278A1 1 0 0140 25zM26.971 18a1.893 1.893 0 01-1.15-.389 1.77 1.77 0 01-.685-1.738l.782-4.238L22.591 8.62a1.758 1.758 0 01-.511-1.838 1.831 1.831 0 011.528-1.27l4.661-.63 2.07-3.9a1.9 1.9 0 013.322 0h0l2.07 3.9 4.66.63a1.832 1.832 0 011.529 1.27 1.756 1.756 0 01-.511 1.837l-3.327 3.017.782 4.238a1.77 1.77 0 01-.685 1.738 1.9 1.9 0 01-2 .192l-4.219-2.063L27.816 17.8A1.917 1.917 0 0126.971 18zm-2.7-10.56l3.078 2.79a1.765 1.765 0 01.562 1.637l-.754 4.088 4-2.012a1.933 1.933 0 011.683 0L36.834 15.9l-.743-4.028a1.767 1.767 0 01.561-1.637l3.079-2.79-4.325-.585A1.867 1.867 0 0134 5.894L32 2.118 30 5.894a1.867 1.867 0 01-1.4.962zm11.5-2.485h0zM31.894 1.918h0z"></path><circle cx="12" cy="16" r="1" fill="#333"></circle><circle cx="57" cy="13" r="1" fill="#333"></circle><circle cx="35" cy="26" r="1" fill="#333"></circle><circle cx="51" cy="28" r="1" fill="#333"></circle><circle cx="28" cy="21" r="1" fill="#333"></circle><circle cx="14" cy="29" r="1" fill="#333"></circle><circle cx="18" cy="6" r="1" fill="#333"></circle><circle cx="45" cy="4" r="1" fill="#333"></circle></svg></div></div></div></div><div id="gift1_wrapper" class="gift_block"><div gift-name="gift03" id="w-node-_516a511a-e85b-df15-1b02-95253eb273b4-e82f8fe2" class="gift_inner"><img src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8f6c_mysteryboxs.webp" loading="lazy" gift-name="gift03" id="gift3image" alt="" class="gift_image"><div gift-name="gift03" class="gift-overlay"></div><div class="gift_lockers"><div class="gift-cart-iucons w-embed"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 64 64" id="gift"><path fill="#333" d="M54 64H10a1 1 0 01-1-1V41a1 1 0 012 0V62H53V41a1 1 0 012 0V63A1 1 0 0154 64zM54 34H10a1 1 0 010-2H54a1 1 0 010 2z"></path><path fill="#333" d="M32,64a1,1,0,0,1-1-1V33a1,1,0,0,1,2,0V63A1,1,0,0,1,32,64Z"></path><path fill="#333" d="M23,42H3a1,1,0,0,1-.752-1.658l7-8A1,1,0,0,1,10,32H32a1,1,0,0,1,.665,1.747l-9,8A1,1,0,0,1,23,42ZM5.2,40H22.62l6.75-6H10.454Z"></path><path fill="#333" d="M61 42H41a1 1 0 01-.665-.253l-9-8A1 1 0 0132 32H54a.993.993 0 01.752.342l7 8A1 1 0 0161 42zM41.38 40H58.8l-5.25-6H34.63zM19 31a1 1 0 01-.9-.553C12.447 19.131 2.1 19 2 19a1 1 0 010-2c.475 0 11.689.143 17.9 12.553A1 1 0 0119 31zM45 31a1 1 0 01-.894-1.447C50.311 17.143 61.525 17 62 17a1 1 0 010 2h0c-.425 0-10.473.178-16.107 11.447A1 1 0 0145 31zM23 25a1 1 0 01-.979-.8c-1.864-9.319-8.15-12.162-8.417-12.278a1 1 0 01.791-1.837c.306.131 7.507 3.326 9.586 13.723A1 1 0 0123.2 24.98.948.948 0 0123 25zM40 25a.948.948 0 01-.2-.02A1 1 0 0139.02 23.8c2.079-10.4 9.28-13.592 9.586-13.723a1 1 0 01.79 1.837c-.283.124-6.554 2.973-8.416 12.278A1 1 0 0140 25zM26.971 18a1.893 1.893 0 01-1.15-.389 1.77 1.77 0 01-.685-1.738l.782-4.238L22.591 8.62a1.758 1.758 0 01-.511-1.838 1.831 1.831 0 011.528-1.27l4.661-.63 2.07-3.9a1.9 1.9 0 013.322 0h0l2.07 3.9 4.66.63a1.832 1.832 0 011.529 1.27 1.756 1.756 0 01-.511 1.837l-3.327 3.017.782 4.238a1.77 1.77 0 01-.685 1.738 1.9 1.9 0 01-2 .192l-4.219-2.063L27.816 17.8A1.917 1.917 0 0126.971 18zm-2.7-10.56l3.078 2.79a1.765 1.765 0 01.562 1.637l-.754 4.088 4-2.012a1.933 1.933 0 011.683 0L36.834 15.9l-.743-4.028a1.767 1.767 0 01.561-1.637l3.079-2.79-4.325-.585A1.867 1.867 0 0134 5.894L32 2.118 30 5.894a1.867 1.867 0 01-1.4.962zm11.5-2.485h0zM31.894 1.918h0z"></path><circle cx="12" cy="16" r="1" fill="#333"></circle><circle cx="57" cy="13" r="1" fill="#333"></circle><circle cx="35" cy="26" r="1" fill="#333"></circle><circle cx="51" cy="28" r="1" fill="#333"></circle><circle cx="28" cy="21" r="1" fill="#333"></circle><circle cx="14" cy="29" r="1" fill="#333"></circle><circle cx="18" cy="6" r="1" fill="#333"></circle><circle cx="45" cy="4" r="1" fill="#333"></circle></svg></div></div></div></div><div id="gift1_wrapper" class="gift_block"><div gift-name="gift04" id="w-node-_516a511a-e85b-df15-1b02-95253eb273ba-e82f8fe2" class="gift_inner"><img src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8f5c_milk-frothers.webp" loading="lazy" gift-name="gift04" id="gift4image" alt="" class="gift_image"><div gift-name="gift04" class="gift-overlay"></div><div class="gift_lockers"><div class="gift-cart-iucons w-embed"><svg xmlns="http://www.w3.org/2000/svg" data-name="Layer 1" viewBox="0 0 64 64" id="gift"><path fill="#333" d="M54 64H10a1 1 0 01-1-1V41a1 1 0 012 0V62H53V41a1 1 0 012 0V63A1 1 0 0154 64zM54 34H10a1 1 0 010-2H54a1 1 0 010 2z"></path><path fill="#333" d="M32,64a1,1,0,0,1-1-1V33a1,1,0,0,1,2,0V63A1,1,0,0,1,32,64Z"></path><path fill="#333" d="M23,42H3a1,1,0,0,1-.752-1.658l7-8A1,1,0,0,1,10,32H32a1,1,0,0,1,.665,1.747l-9,8A1,1,0,0,1,23,42ZM5.2,40H22.62l6.75-6H10.454Z"></path><path fill="#333" d="M61 42H41a1 1 0 01-.665-.253l-9-8A1 1 0 0132 32H54a.993.993 0 01.752.342l7 8A1 1 0 0161 42zM41.38 40H58.8l-5.25-6H34.63zM19 31a1 1 0 01-.9-.553C12.447 19.131 2.1 19 2 19a1 1 0 010-2c.475 0 11.689.143 17.9 12.553A1 1 0 0119 31zM45 31a1 1 0 01-.894-1.447C50.311 17.143 61.525 17 62 17a1 1 0 010 2h0c-.425 0-10.473.178-16.107 11.447A1 1 0 0145 31zM23 25a1 1 0 01-.979-.8c-1.864-9.319-8.15-12.162-8.417-12.278a1 1 0 01.791-1.837c.306.131 7.507 3.326 9.586 13.723A1 1 0 0123.2 24.98.948.948 0 0123 25zM40 25a.948.948 0 01-.2-.02A1 1 0 0139.02 23.8c2.079-10.4 9.28-13.592 9.586-13.723a1 1 0 01.79 1.837c-.283.124-6.554 2.973-8.416 12.278A1 1 0 0140 25zM26.971 18a1.893 1.893 0 01-1.15-.389 1.77 1.77 0 01-.685-1.738l.782-4.238L22.591 8.62a1.758 1.758 0 01-.511-1.838 1.831 1.831 0 011.528-1.27l4.661-.63 2.07-3.9a1.9 1.9 0 013.322 0h0l2.07 3.9 4.66.63a1.832 1.832 0 011.529 1.27 1.756 1.756 0 01-.511 1.837l-3.327 3.017.782 4.238a1.77 1.77 0 01-.685 1.738 1.9 1.9 0 01-2 .192l-4.219-2.063L27.816 17.8A1.917 1.917 0 0126.971 18zm-2.7-10.56l3.078 2.79a1.765 1.765 0 01.562 1.637l-.754 4.088 4-2.012a1.933 1.933 0 011.683 0L36.834 15.9l-.743-4.028a1.767 1.767 0 01.561-1.637l3.079-2.79-4.325-.585A1.867 1.867 0 0134 5.894L32 2.118 30 5.894a1.867 1.867 0 01-1.4.962zm11.5-2.485h0zM31.894 1.918h0z"></path><circle cx="12" cy="16" r="1" fill="#333"></circle><circle cx="57" cy="13" r="1" fill="#333"></circle><circle cx="35" cy="26" r="1" fill="#333"></circle><circle cx="51" cy="28" r="1" fill="#333"></circle><circle cx="28" cy="21" r="1" fill="#333"></circle><circle cx="14" cy="29" r="1" fill="#333"></circle><circle cx="18" cy="6" r="1" fill="#333"></circle><circle cx="45" cy="4" r="1" fill="#333"></circle></svg></div></div></div></div></div><div class="hide w-embed"><style>
+.gifts-carts.is-active {
+  position: relative;
+  overflow: visible;
+}
+
+.gifts-carts.is-active::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #000; /* Replace with your desired stroke color */
+  box-sizing: border-box;
+  border-radius: inherit;
+  opacity: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.pulse-animation::before {
+  animation: pulse 1s;
+}
+</style></div><div class="gifts-cards-titles"><div gift-name="gift01" class="gift_titles is-active"><div class="text-block-122">Free Shipping</div></div><div gift-name="gift02" class="gift_titles"><div class="text-block-122">Recipe Book</div></div><div gift-name="gift03" class="gift_titles"><div class="text-block-122">Mystery Gift</div></div><div gift-name="gift04" class="gift_titles"><div class="text-block-122">Electric Mixer</div></div></div></div></div><div cart-item="line-items" ll-scroll-disable="preserve" class="cart_line-items-static"><div data-flavor="original" class="cart_line-item main"><div class="cart_card-wrapper"><div class="summary-card-image_container magic-gd-vanilla"><div class="qty-item is-active"><div data-quantity="display" class="line_item-qty">1</div></div><img src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f9002_proteina-coffee.webp" loading="eager" width="Auto" height="Auto" alt="" class="image-85 proteins"></div><div class="cart_card-info"><div class="cart_content"><div class="cart3_description"><div class="cart3_item-name">Protein Coffee</div><div class="coupon-statics"><div class="icon-small-bubble w-embed"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="CurrentColor" d="M11,22a1,1,0,0,1-.707-0.293l-8-8a1,1,0,0,1,0-1.414l10-10A1,1,0,0,1,13,2h8a1,1,0,0,1,1,1v8a1,1,0,0,1-.293.707l-10,10A1,1,0,0,1,11,22ZM4.414,13L11,19.586l9-9V4H13.414Z"></path><circle fill="CurrentColor" cx="16" cy="8" r="2"></circle></svg></div><div id="bundle_coupon" class="bundle-coupon">1-pack discount</div></div><div class="cart3_line-prices"><div class="price_card-test2"><span id="line_each">$39.99</span></div><div id="line_compare" class="price_card-test2 compare">$49.99</div></div></div><div class="div-block-685"><div class="div-block-684"><div id="original_flavor" data-flavor="original" class="cart2_quantity-container"><div role="button" data-quantity="decrease" class="cart_qty1-handler left-decresae is-active">-</div><div data-quantity="display" class="cart_qty1-display is-active">1</div><div role="button" data-quantity="increase" class="cart_qty1-handler is-active">+</div></div></div><div class="flavor2_name-description"><span id="price_serving_size">$1.67</span> per day</div></div></div></div></div><div id="savings-bubble" class="savings-text hide"><span id="price_savings_pct">42</span>% OFF – You're Saving $<span id="price_savings_money">95</span></div></div><div data-flavor="original" class="cart_line-item main"><div id="savings-bubble" class="savings-text is-active hide"><span id="price_savings_pct">42</span>% OFF – You're Saving $<span id="price_savings_money">95</span></div></div><div class="cart_frequency"><div class="cart_frequency-inner"><div data-frequency="one-time" class="selector3_item current-frequency"><div><div>One-Time</div></div></div><div data-frequency="subscription" class="selector3_item"><div class="text-block-124 hide"><div id="subscription_savings" class="text-block-125 is-active">Save&nbsp; <span>30</span>% OFF</div></div><div><div>Sub &amp;&nbsp;Save ✨</div></div><div class="selector2_benefits"></div><div id="sub-banner" class="sub_label_new is-active">YOU SAVE 40% OFF</div></div><div class="hide w-embed"><style>
+  .selector2_item.current-frequency .selector2_circle {
+    background-color: transparent!important;
+    border-color: #2a2552!important;
+}
+
+.selector2_item.current-frequency .selector2_check-circle {
+    background-color: #2a2552!important;
+}
+</style></div></div><div id="subscription_benefits" class="div-block-745 is-active"><div id="current_trial" class="message-toggler"><div class="text-size-tiny text-weight-bold">Switch to Subscribe &amp; Save Extra 10% Off <span class="finger-emoji">☝️</span></div><div class="w-embed"><style>
+@keyframes up-and-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.finger-emoji {
+  animation: up-and-down 2s ease-in-out infinite;
+}
+
+</style></div></div><div id="current_sub" class="message-toggler is-active"><ul role="list" class="list3_components w-list-unstyled"><li class="list2_item"><div class="list3_item-wrapper"><img loading="lazy" src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8eef_checkmark.svg" alt="" class="list2_checkmark"><div class="text-size-xtiny">FREE&nbsp;Shipping</div></div></li><li class="list2_item"><div class="list3_item-wrapper"><img loading="lazy" src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8eef_checkmark.svg" alt="" class="list2_checkmark"><div class="text-size-xtiny">You Save Extra 10% OFF</div></div></li><li class="list2_item"><div class="list3_item-wrapper"><img loading="lazy" src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8eef_checkmark.svg" alt="" class="list2_checkmark"><div class="text-size-xtiny">Easy to Cancel</div></div></li></ul></div></div></div><div gift-name="gift04" class="cart_line-item gift-card"><div class="flavor_card2-wrapper"><div class="summary-card-image_container bg-gd-vanilla"><img src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8f5c_milk-frothers.webp" loading="eager" width="400" alt=""><div class="qty-item is-active"><div class="line_item-qty">1</div></div></div><div class="cart_card-info"><div class="cart_content"><div class="cart3_description"><div class="cart3_item-name">Electric Mixer</div><div class="cart3_sub-description">Effortless Mixing Power</div></div><div><div class="div-block-686"><div class="price_card-test2 compare">$24.95</div><div class="price_card-test2">$0.00</div></div></div></div></div></div></div><div gift-name="gift03" class="cart_line-item gift-card"><div class="flavor_card2-wrapper"><div class="summary-card-image_container bg-gd-vanilla"><img src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8f6c_mysteryboxs.webp" loading="eager" width="400" alt=""><div class="qty-item is-active"><div class="line_item-qty">1</div></div></div><div class="cart_card-info"><div class="cart_content"><div class="cart3_description"><div class="cart3_item-name">Mystery Gift</div><div class="flavor_card2-reviews hide"><div class="product-header7_rating-wrapper-2"><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div></div><div class="flavor2_reviews">(1280)</div></div><div class="cart3_sub-description">Exciting Surprise Inside</div></div><div><div class="div-block-686"><div class="price_card-test2 compare">$19.95</div><div class="price_card-test2">$0.00</div></div></div></div></div></div></div><div gift-name="gift02" class="cart_line-item gift-card last-child"><div class="flavor_card2-wrapper"><div class="summary-card-image_container bg-gd-vanilla"><img src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8d31_book-gifts.webp" loading="eager" width="80" alt=""><div class="qty-item is-active"><div class="line_item-qty">1</div></div></div><div class="cart_card-info"><div class="cart_content"><div class="cart3_description"><div class="cart3_item-name">Digital Recipe Book</div><div class="flavor_card2-reviews hide"><div class="product-header7_rating-wrapper-2"><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div><div class="flavor_card2-star w-embed"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.201432 8.35425C0.0324796 8.23123 -0.0397528 8.01452 0.021606 7.81473L0.101529 7.56496C0.159961 7.36756 0.335635 7.22781 0.541103 7.21527L6.92493 6.70573L9.37256 0.821007C9.45466 0.614853 9.66074 0.485543 9.88206 0.501294H10.1418C10.3505 0.496866 10.539 0.62523 10.6114 0.821007L13.069 6.70573L19.4528 7.21527C19.6583 7.22781 19.8339 7.36756 19.8924 7.56496L19.9723 7.81473C20.0403 8.00821 19.9805 8.22355 19.8224 8.35425L15.0071 12.4905L16.4857 18.695C16.5344 18.8936 16.4596 19.1021 16.2959 19.2245L16.0061 19.3843C15.8371 19.4986 15.6157 19.4986 15.4467 19.3843L10.0119 16.0873L4.54723 19.4143C4.37823 19.5286 4.15676 19.5286 3.98777 19.4143L3.76798 19.2645C3.60419 19.142 3.52945 18.9335 3.57816 18.7349L5.01677 12.4905L0.201432 8.35425Z" fill="CurrentColor"></path>
+</svg></div></div><div class="flavor2_reviews">(1280)</div></div><div class="cart3_sub-description">Nutritious Recipe Collection</div></div><div><div class="div-block-686"><div class="price_card-test2">Free Bonus</div></div></div></div></div></div></div><div class="w-layout-grid c_features hide"><div class="divider reviews"><div class="divider-line"></div><div data-i18n="trusted_reviews" class="c_divider-text">WHY CHOOSE US</div><div class="divider-line"></div></div><div class="c_features-item"><div class="c_features-item-wrapper"><div class="c_features-image-container"><img loading="lazy" src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8f81_60aae7e490d72d583536d189_30-day-icon.svg" alt="avatar-img" class="c_features-image-block"></div><div class="c_features-info"><div class="c_features-title">30-Day Satisfaction Guarantee<br></div><p data-i18n="trusted_reviews_review_1" class="c_features-text">If you're not satisfied with your product(s), we'll make it right!<br></p></div></div></div><div class="c_features-item text-black mb-30"><div class="c_features-item-wrapper"><div class="c_features-image-container"><img loading="lazy" src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8f75_customers.svg" alt="avatar-img" class="c_features-image-block"></div><div class="c_features-info"><div class="c_features-title">Over 1 milllion successfully shipped bottles<br></div><p data-i18n="trusted_reviews_review_1" class="c_features-text">Happy customers, end to end tracking and reliable customer service.</p></div></div></div></div></div><div id="cart-footer" class="jv_cart-footer"><div><div class="cart-summary"><div id="regular-price" class="cart-summary-line discount is-active"><div class="div-block-696"><div>Regular Price</div></div><div class="cart-discount"><div id="price_compare_price">$49.99</div></div></div><div id="cart-savings" class="cart-summary-line discount is-active"><div class="div-block-696"><div>Bundle Savings</div></div><div class="cart-discount"><div id="bundle-discount">-$0.00</div></div></div><div id="cart-discount-line" class="cart-summary-line coupon is-active"><div class="div-block-696"><div>Coupon</div><div id="discount-bubble" class="cart-discount-label is-active"><div id="discount-name" class="discount-text">FATHERS20P</div></div></div><div class="cart-discount"><div id="discount-amount">-$10.00</div></div></div><div class="cart-summary-line thinner hide"><div>Shipping</div><div id="shipping_text">Free</div></div><div class="cart-summary-line total"><div>Total</div><div class="cart-price-summary"><div class="cart_price">$<span id="price_total_price">39.99</span></div></div></div></div><div class="padding-bottom padding-xsmall"></div><div class="cta1_wrapper"><div id="button_holder" class="cta1_inner"><a href="#" id="proceed_checkout" role="button" data-action="proceed-checkout" class="button is-full is-squared w-inline-block"><div class="loading-spinner w-embed"><svg viewBox="0 0 50 50" class="spinner">
+  <circle class="ring" cx="25" cy="25" r="22.5"></circle>
+  <circle class="line" cx="25" cy="25" r="22.5"></circle>
+</svg>
+<style>
+.spinner {
+  --spinner-size: 2;
+  --line-color: #ffffff;
+  --line-alpha: 1;
+  --ring-color: #ffffff;
+  --ring-alpha: 0.05;
+  --ring-size: 6;
+
+  font-size: calc(var(--spinner-size) * 1em);
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+}
+.spinner .line {
+  fill: none;
+  stroke: var(--line-color);
+  stroke-width: var(--ring-size);
+  opacity: var(--line-alpha);
+  stroke-linecap: round;
+  transform-origin: 50% 50%;
+  transform: rotate3d(0, 0, 1, 0deg);
+  animation: 
+    2156ms spinner-arc ease-in-out infinite,
+    1829ms spinner-rotate linear infinite;
+}
+.spinner .ring {
+  fill: none;
+  stroke: var(--ring-color);
+  stroke-width: var(--ring-size);
+  opacity: var(--ring-alpha);
+}
+@keyframes spinner-rotate {
+  to { transform: rotate3d(0, 0, 1, 360deg); }
+}
+@keyframes spinner-arc {
+  from { stroke-dasharray: 0 150; stroke-dashoffset: 0; }
+  to { stroke-dasharray: 100 150; stroke-dashoffset: -140; }
+}
+--spinner-size: 2em
+--ring-size: 6
+--line-color: #ffffff
+--line-alpha: 1
+--ring-color: #ffffff
+--ring-alpha: 0.05
+</style></div><div id="cta_text" class="checkout-btns"><div class="html-embed-10 w-embed"><svg width="100%" height="100%" viewBox="0 0 47 47" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Ecommerce-Icons" transform="translate(-68.000000, -2394.000000)" fill="#fff">
+            <g id="Primary-Lock-Black-Copy" transform="translate(68.000000, 2394.000000)">
+                <path d="M2.894495,44.10574 L44.10574,44.10574 L44.10574,19.434265 L2.894495,19.434265 L2.894495,44.10574 Z M13.920695,12.473565 C13.920695,7.191705 18.217905,2.89426 23.5,2.89426 C28.782095,2.89426 33.079305,7.191705 33.079305,12.473565 L33.079305,16.539535 L13.920695,16.539535 L13.920695,12.473565 Z M45.55287,16.539535 L35.973565,16.539535 L35.973565,12.473565 C35.973565,5.595585 30.378215,0 23.5,0 C16.621785,0 11.026435,5.595585 11.026435,12.473565 L11.026435,16.539535 L1.44713,16.539535 C0.647895,16.539535 0,17.187665 0,17.9869 L0,45.55287 C0,46.352105 0.647895,47 1.44713,47 L45.55287,47 C46.352105,47 47,46.352105 47,45.55287 L47,17.9869 C47,17.187665 46.352105,16.539535 45.55287,16.539535 L45.55287,16.539535 Z" id="Fill-1"></path>
+                <path d="M26.911401,28.2895115 C26.911401,26.3864815 25.368626,24.8439415 23.465596,24.8439415 C21.562331,24.8439415 20.019791,26.3864815 20.019791,28.2895115 C20.019791,29.4074065 20.554416,30.3979315 21.379266,31.0274965 L21.374331,31.0274965 L20.019791,38.6266915 L26.911401,38.6266915 L25.556861,31.0274965 L25.551691,31.0274965 C26.376776,30.3979315 26.911401,29.4074065 26.911401,28.2895115" id="Fill-3"></path>
+            </g>
+        </g>
+    </g>
+</svg></div><div id="cta_text" class="button-text">Proceed To Checkout</div></div></a><img src="https://assets.website-files.com/648393b416827ee9e82f8c3f/648393b416827ee9e82f8f5d_credit-card-icons.svg" loading="lazy" alt="" class="cc-icons hide"></div></div></div></div></div></div>
